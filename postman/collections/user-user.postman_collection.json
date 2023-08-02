@@ -1,0 +1,1756 @@
+{
+	"info": {
+		"_postman_id": "a53a4a46-918e-4b4b-b66d-6b6eeb5be8bd",
+		"name": "user-user",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "20511316-a53a4a46-918e-4b4b-b66d-6b6eeb5be8bd"
+	},
+	"item": [
+		{
+			"name": "Obtener token Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"token\", data.token);"
+						],
+						"type": "text/javascript",
+						"id": "63b5fb89-958a-44d9-bdc4-1027c419ff31"
+					}
+				}
+			],
+			"id": "f5eefd2e-acec-449e-ad91-d43a3f08275a",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"username\": \"teacher\",\n   \"password\": \"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/privacyusers/login",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"privacyusers",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"user_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "ebb9cb32-75e1-472b-a25a-09b35ed6734e"
+					}
+				}
+			],
+			"id": "e05bec27-834e-48f4-9938-19e969370d5e",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Juan Perez\",\n    \"email\": \"j.perez@uniandes.edu.co\",\n    \"password\": \"contrasenaSegura\",\n    \"image\": \"imagen.url.com\",\n    \"user\": \"j.perez\",\n    \"userType\": \"student\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "270872cd-bc74-41ca-8985-fb5d282214f9",
+					"name": "Add User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"Juan Perez\",\n    \"mail\": \"j.perez@uniandes.edu.co\",\n    \"password\": \"contrasenaSegura\",\n    \"image\": \"imagen.url.com\",\n    \"login\": \"j.perez\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Add User2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"user_id_2\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "22cee4eb-2bf9-4406-9266-445ed4674e3f"
+					}
+				}
+			],
+			"id": "335b8d4e-b06f-4093-b7b7-d7fd95ff534b",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Juan Perez\",\n    \"email\": \"j.perez@uniandes.edu.co\",\n    \"password\": \"contrasenaSegura\",\n    \"image\": \"imagen.url.com\",\n    \"user\": \"j.perez\",\n    \"userType\": \"student\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "19e5294c-17e4-4d36-8c91-a2048b0697fb",
+					"name": "Add User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"Juan Perez\",\n    \"mail\": \"j.perez@uniandes.edu.co\",\n    \"password\": \"contrasenaSegura\",\n    \"image\": \"imagen.url.com\",\n    \"login\": \"j.perez\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Add User3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"user_id_3\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "013e2d74-6c36-4a50-b2e4-a14952564a70"
+					}
+				}
+			],
+			"id": "96e4e3b6-397b-4ac9-855e-0be2d8e2a499",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Juan Perez\",\n    \"email\": \"j.perez@uniandes.edu.co\",\n    \"password\": \"contrasenaSegura\",\n    \"image\": \"imagen.url.com\",\n    \"user\": \"j.perez\",\n    \"userType\": \"student\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "1bf9776d-720e-423b-ac68-7fb915b87664",
+					"name": "Add User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"Juan Perez\",\n    \"mail\": \"j.perez@uniandes.edu.co\",\n    \"password\": \"contrasenaSegura\",\n    \"image\": \"imagen.url.com\",\n    \"login\": \"j.perez\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Add a friend to a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "bbc03551-42cb-4054-a5a7-4117f3a977e1"
+					}
+				}
+			],
+			"id": "2252f44d-368d-4988-adbb-aac7cadab85e",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/friends/{{user_id_2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"friends",
+						"{{user_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "861304e1-7f69-4ec1-85b4-1ee80bcf63b9",
+					"name": "Add a note to a user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"ffe25032-b95b-4fb7-a3e0-35092403141b\",\n    \"name\": \"Juan Perez\",\n    \"email\": \"j.perez@uniandes.edu.co\",\n    \"password\": \"contrasenaSegura\",\n    \"image\": \"imagen.url.com\",\n    \"user\": \"j.perez\",\n    \"userType\": \"student\",\n    \"comment\": [],\n    \"university\": null,\n    \"friends\": [],\n    \"friend\": null,\n    \"notes\": [\n        {\n            \"id\": 2,\n            \"title\": \"Matemáticas\",\n            \"text\": \"Primer capitulo\",\n            \"icon\": \"url.tobe.com\",\n            \"portada\": \"portada.url.com\",\n            \"accessible\": \"true\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/friends/{{user_id_2}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"friends",
+								"{{user_id_2}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Add an invalid friend to a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The friend with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "2f3fc1ba-a812-40e0-b632-1a8dc3518ddc"
+					}
+				}
+			],
+			"id": "ff0b3f24-54b6-4029-a39c-a2c37ed433ca",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/friends/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"friends",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "7064ef0d-2694-4119-bcc3-2e243a9edcd1",
+					"name": "Add an invalid friend to a user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/friends/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"friends",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Add a friend to an invalid user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "36f63022-8835-4010-84a5-7df71ca0111b"
+					}
+				}
+			],
+			"id": "f1dcbd27-9b17-489e-b021-afcead2561d8",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/friends/{{user_id_2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"00000000-0000-0000-0000-000000000000",
+						"friends",
+						"{{user_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "50d6497d-2cac-4956-bfb7-3648281e3799",
+					"name": "Add a note to an invalid user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"statusCode\": 404,\n   \"message\": \"The user with the given id was not found\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/friends/{{user_id_2}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"00000000-0000-0000-0000-000000000000",
+								"friends",
+								"{{user_id_2}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get a friend of a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "e3d57ae1-23ac-42ef-b6d9-af18ce30bf02"
+					}
+				}
+			],
+			"id": "b06be21e-b3b1-466d-9d95-d069800f46e9",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/friends/{{user_id_2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"friends",
+						"{{user_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "3d76e3f8-6f8a-42d7-ad96-6c8b7644debf",
+					"name": "Get a friend of a user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"title\": \"Matemáticas\",\n    \"text\": \"Primer capitulo\",\n    \"icon\": \"url.tobe.com\",\n    \"portada\": \"portada.url.com\",\n    \"accessible\": \"true\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/friends/{{user_id_2}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"friends",
+								"{{user_id_2}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get an invalid friend of a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The friend with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "8f1f54db-74d0-4d0e-b078-da2f59840cb4"
+					}
+				}
+			],
+			"id": "3a8a6bd3-f09a-44c0-b584-06fb6c7a3f0c",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/friends/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"friends",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "32594429-a21a-4d3d-b5ee-e2d29fc4aa82",
+					"name": "Get an invalid note of a user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"statusCode\": 404,\n    \"message\": \"The friend with the given id was not found\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/friends/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"friends",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get a friend of an invalid user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "daa5c862-683f-4857-a742-37f42cd0c052"
+					}
+				}
+			],
+			"id": "f202515a-1aa8-4cef-9df7-d2dc436705b0",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/friends/{{user_id_2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"00000000-0000-0000-0000-000000000000",
+						"friends",
+						"{{user_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "6eb5748b-dd09-49e2-9477-d6f51fbf0ef2",
+					"name": "Get a note of an invalid user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"statusCode\": 404,\n    \"message\": \"The user with the given id was not found\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/notes/{{note_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"00000000-0000-0000-0000-000000000000",
+								"notes",
+								"{{note_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get a friend non-associated to a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The friend with the given id is not associated to the user\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "0f9bad60-0d61-4fe9-a750-9760100d6a5b"
+					}
+				}
+			],
+			"id": "3f60d24d-b892-4e68-90d9-f502c11d7bb1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/friends/{{user_id_3}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"friends",
+						"{{user_id_3}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "cb76613b-54d8-4152-9d1f-f46b005b0bb2",
+					"name": "Get a note non-associated to a user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"statusCode\": 412,\n    \"message\": \"The friend with the given id is not associated to the user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/friends/{{user_id_3}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"friends",
+								"{{user_id_3}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get all friends of a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "5545b7c1-424c-4538-a203-e57f85c525d6"
+					}
+				}
+			],
+			"id": "d46f7373-18ed-482f-b2e1-b41dfd281add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/friends",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"friends"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "c7745823-786b-49bc-b06c-d81d462fd11c",
+					"name": "Get all friends of a user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"id\": \"c3b801b0-e2a1-44cd-99a2-534be353f247\",\n        \"name\": \"Juan Perez\",\n        \"email\": \"j.perez@uniandes.edu.co\",\n        \"password\": \"contrasenaSegura\",\n        \"image\": \"imagen.url.com\",\n        \"user\": \"j.perez\",\n        \"userType\": \"student\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/friends",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"friends"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get all friends of an invalid user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "9ddb4251-7a3f-46ee-b663-06159cac9d0c"
+					}
+				}
+			],
+			"id": "22dd443f-c8e4-4352-9ddb-ddecb1105aa5",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/friends",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"00000000-0000-0000-0000-000000000000",
+						"friends"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "dee7f444-5e07-482d-94a0-e641c9e557d9",
+					"name": "Get all friends of an invalid user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"statusCode\": 404,\n    \"message\": \"The user with the given id was not found\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/notes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"00000000-0000-0000-0000-000000000000",
+								"notes"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Update friends of a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "e02f9654-6a6a-4011-ada1-4f95eaeebbad"
+					}
+				}
+			],
+			"id": "7b3faa03-6bca-455b-bf18-7325ba7b4a63",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n   {\n       \"id\": \"{{user_id_3}}\"\n   }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/friends",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"friends"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "79cb0d4a-797a-4e0f-aae1-9d152962c303",
+					"name": "Update notes of a user",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"d445d44d-a6de-47d6-abd2-77367d5f4a44\",\n    \"name\": \"Juan Perez\",\n    \"email\": \"j.perez@uniandes.edu.co\",\n    \"password\": \"contrasenaSegura\",\n    \"image\": \"imagen.url.com\",\n    \"user\": \"j.perez\",\n    \"userType\": \"student\",\n    \"friends\": [\n        {\n            \"id\": \"e91140d6-8ccc-4c01-9d26-a171e72fee98\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/friends",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"friends"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Update invalid friends of a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The friend with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "601744af-deca-4195-a741-e609c7219334"
+					}
+				}
+			],
+			"id": "e268176d-b8a6-4cd6-9a40-4c0132be6fd0",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n   {\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\n   }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/friends",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"friends"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "2966be86-491d-4633-be4e-2b5aabd39f74",
+					"name": "Update invalid friends of a user",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"statusCode\": 404,\n    \"message\": \"The friend with the given id was not found\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/friends",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"friends"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Update friends of an invalid user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "4676f071-c7fa-4469-bba0-050e1802662d"
+					}
+				}
+			],
+			"id": "3c0f7b5c-8853-4fee-bb53-ca83643ebabb",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n   {\n       \"id\": \"{{user_id_3}}\"\n   }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/friends",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"00000000-0000-0000-0000-000000000000",
+						"friends"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "5241731c-edcf-4993-9652-58634cc79031",
+					"name": "Update notes of an invalid user",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"statusCode\": 404,\n    \"message\": \"The user with the given id was not found\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/friends",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"00000000-0000-0000-0000-000000000000",
+								"friends"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete a friend of a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "0fe92caa-fe67-497b-b410-5ea74bc115fd"
+					}
+				}
+			],
+			"id": "fd21918f-0d5e-473f-a7bd-faa1c4c05690",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/friends/{{user_id_2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"friends",
+						"{{user_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "2be6d0f0-8c85-406d-92b7-b2fe252f7a17",
+					"name": "Delete a friend of a user",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/friends/{{user_id_2}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"friends",
+								"{{user_id_2}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete a friend of an invalid user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "0c3ea36e-3aae-41a5-a085-01f11fb78f27"
+					}
+				}
+			],
+			"id": "3251ee10-4f1d-463c-bd2f-37dc1b8a3510",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/friends/{{user_id_3}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"00000000-0000-0000-0000-000000000000",
+						"friends",
+						"{{user_id_3}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "7d348bfe-6552-4d1b-8c2d-c64cbfcd5996",
+					"name": "Delete a friend of an invalid user",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"statusCode\": 404,\n    \"message\": \"The user with the given id was not found\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/friends/{{user_id_3}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"00000000-0000-0000-0000-000000000000",
+								"friends",
+								"{{user_id_3}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid friend of a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The friend with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "953a90a6-d083-425d-a7e1-380ea35a82e3"
+					}
+				}
+			],
+			"id": "a3318b1f-ac13-45b8-87f0-73577078d5f1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/friends/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"friends",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "30802bfb-231f-41db-aa29-597f9166d8b1",
+					"name": "Delete an invalid friend of a user",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"statusCode\": 404,\n    \"message\": \"The friend with the given id was not found\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/friends/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"friends",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete a note non-associated to a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The friend with the given id is not associated to the user\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "66269bdc-6937-4256-a952-0ca0c3e83914"
+					}
+				}
+			],
+			"id": "f8777b2f-ca86-4b32-b5a6-a092d14e5cb1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/friends/{{user_id_2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"friends",
+						"{{user_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "0ca09fef-9f9f-46b9-a8ef-ed535b5f4e10",
+					"name": "Delete a note non-associated to a user",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"statusCode\": 412,\n    \"message\": \"The friend with the given id is not associated to the user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/notes/{{note_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"notes",
+								"{{note_id}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}

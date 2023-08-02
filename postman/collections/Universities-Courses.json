@@ -1,0 +1,1795 @@
+{
+	"info": {
+		"_postman_id": "e781625d-c399-4601-b001-65ea4de9ac05",
+		"name": "Universities-Courses",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "17660274-e781625d-c399-4601-b001-65ea4de9ac05"
+	},
+	"item": [
+		{
+			"name": "Add a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "30f3ad62-790f-4b38-8d49-35be7bd8cbe5",
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"university_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "428217d0-7082-46cf-a0e6-edd0aa81d323",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\": \"Universidad de los Andes\",\r\n   \"description\": \"Welcome to the Andes university\",\r\n   \"country\": \"Colombia\",\r\n   \"address\":\"Carrera 1 No 25-12\",\r\n   \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/university",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"university"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "433b442d-23c8-4e74-9b6c-979455fe0d60",
+					"name": "Add a university",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"Universidad de los Andes\",\r\n   \"frontPage\": \"Welcome to the Andes university\",\r\n   \"country\": \"Colombia\",\r\n   \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/universities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"universities"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n   \"name\": \"Universidad de los Andes\",\r\n   \"frontPage\": \"Welcome to the Andes university\",\r\n   \"country\": \"Colombia\",\r\n   \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cb270494-8ee4-47f2-9a26-74e0b5156871",
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"course_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "0553e9e4-b7df-4448-954d-0b896b645459",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \"name\": \"Web Programming\",\r\n        \"section\": \"2\",\r\n        \"code\":\"3201\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/course",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"course"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "a1341d3c-568f-4fa9-8e92-1334a9a9e8de",
+					"name": "Add a course",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/courses",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n        \"id\": \"ISIS3245\",\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n   }"
+				}
+			]
+		},
+		{
+			"name": "Add a course 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cb270494-8ee4-47f2-9a26-74e0b5156871",
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"course_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "829e745b-e7c1-48a2-879d-4f8657ac4e46",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \"name\": \"Web Programming\",\r\n        \"section\": \"2\",\r\n        \"code\":\"3201\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/course",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"course"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "2e50fc65-c1b8-440e-bd05-7a0e84c9e34b",
+					"name": "Add a course",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/courses",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n        \"id\": \"ISIS3245\",\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n   }"
+				}
+			]
+		},
+		{
+			"name": "Add a course to a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5376ca87-1797-4850-bfd0-21e7c4f2ee3c",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "12cf99a7-56fc-4612-9188-c018ab031134",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \"name\": \"Web Programming\",\r\n        \"section\": \"2\",\r\n        \"code\":\"3201\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\",\r\n   \"courses\": [\r\n       {\r\n    \"name\": \"Web Programming\",\r\n    \"section\": \"2\",\r\n    \"code\": \"3201\",\r\n    \"department\": \"Systems Engineering\",\r\n    \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       }\r\n   ],\r\n   \"users\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/universities/45848383-0d53-4b8b-9e9e-129a814a4739/courses/7e9edd05-9a68-4298-b20a-c3e98a87d075",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"45848383-0d53-4b8b-9e9e-129a814a4739",
+						"courses",
+						"7e9edd05-9a68-4298-b20a-c3e98a87d075"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "86370d7f-9dda-4dc7-a589-6327e74678df",
+					"name": "Add a course to a university",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}/courses/{{course_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}",
+								"courses",
+								"{{course_id_1}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n   \"name\": \"Universidad de los Andes\",\n   \"frontPage\": \"Welcome to the Andes university\",\n   \"country\": \"Colombia\",\n   \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\",\n    \"courses\": [\n        {\n            \"id\": \"ISIS4302\",\n            \"name\": \"Diseño Avanzado Web\",\n            \"department\": \"Systems Engineering\",\n            \"section\": \"2\",\n            \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\n        },\n        {\n            \"id\": \"ISIS4525\",\n            \"name\": \"Web Programming 5\",\n            \"department\": \"Systems Engineering\",\n            \"section\": \"2\",\n            \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add an invalid course to a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6ce0426c-43cd-4269-a144-32f03650bf58",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The course with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "94118424-3bae-48cd-83ba-487a0125d3d8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/universities/00000000-0000-0000-0000-000000000000/courses/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"00000000-0000-0000-0000-000000000000",
+						"courses",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "92d6d098-754c-4adf-baa1-99d4e20052c2",
+					"name": "Add an invalid course to a university",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{user_id}}/courses/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{user_id}}",
+								"courses",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The course with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a course to an invalid university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3ddba4c8-275b-4a22-8547-9d15767a05ef",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "a0a17cc9-6f2e-4314-a9fe-1b79271c38d2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/universities/00000000-0000-0000-0000-000000000000/courses/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"00000000-0000-0000-0000-000000000000",
+						"courses",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "8d5b47ff-53b5-4d56-8cdf-519a816d960b",
+					"name": "Add a user to an invalid university",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/university/00000000-0000-0000-0000-000000000000/users/{{user_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"university",
+								"00000000-0000-0000-0000-000000000000",
+								"users",
+								"{{user_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The university with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a course of a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6b158776-5220-487e-b204-afbcdac469b5",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "835958d1-a752-4480-a243-c41f06f93c68",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/universities/45848383-0d53-4b8b-9e9e-129a814a4739/courses/7e9edd05-9a68-4298-b20a-c3e98a87d075",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"45848383-0d53-4b8b-9e9e-129a814a4739",
+						"courses",
+						"7e9edd05-9a68-4298-b20a-c3e98a87d075"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "64b2d03b-30c5-4646-8257-734152ae9a38",
+					"name": "Get a course of a university",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}/courses/{{course_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}",
+								"courses",
+								"{{course_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n       \"id\": \"ISIS3425\",\n       \"name\": \"Web Programming\",\n       \"department\": \"Systems Engineering\",\n       \"section\": \"2\",\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid course of a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "70b96608-ff77-4cf2-9b9b-b03c049510c3",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The course with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "8f736f34-ed49-4c9a-bf29-a29f64a76f19",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/universities/{{university_id}}/courses/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"{{university_id}}",
+						"courses",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "d394de17-9d98-49a2-b9e1-9b84c3d2e485",
+					"name": "Get an invalid course of a university",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}/courses/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}",
+								"courses",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The course with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a course of an invalid university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "07e004af-0b0e-40c9-8380-8a28b5bc7001",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The course with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "917c4694-d9f3-45bd-ac77-85532ceda3bd",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/universities/00000000-0000-0000-0000-000000000000/courses/{{courses_id_1}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"00000000-0000-0000-0000-000000000000",
+						"courses",
+						"{{courses_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "80c4fb81-58bf-4cf2-94d5-01be2334b9b3",
+					"name": "Get a course of an invalid university",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/00000000-0000-0000-0000-000000000000/courses/{{courses_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"00000000-0000-0000-0000-000000000000",
+								"courses",
+								"{{courses_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The university with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a course non-associated to a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "67909ecc-7a9b-46b7-8e8e-89133d9a5d4a",
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The course with the given id is not associated to the museum\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "d297b5a0-2c4c-4e80-85cc-efc60758a389",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/universities/{{university_id}}/courses/{{course_id_2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"{{university_id}}",
+						"courses",
+						"{{course_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "9e4c879b-b029-4a90-8e3f-273c90fe608a",
+					"name": "Get a course non-associated to a university",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}/courses/{{course_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}",
+								"courses",
+								"{{course_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 412,\r\n   \"message\": \"The course with the given id is not associated to the university\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all courses of a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "feabf6dd-26be-45ab-87cc-cff3aabc1070",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "93a45b00-8789-4de0-9007-c7607f788af5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{baseURL}}/universities/{{user_id}}/courses",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"{{user_id}}",
+						"courses"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "6ed4c5a3-5848-4f0d-b55c-83ab06e37d2a",
+					"name": "Get all courses of a university",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}/courses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}",
+								"courses"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "   {\r\n       \"id\": \"ISIS3425\",\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n   }"
+				}
+			]
+		},
+		{
+			"name": "Get all courses of an invalid university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7e20bcf2-166a-4b59-be36-09d603ff4011",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The museum with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "a4ea92b8-1706-4041-8e57-5483073a37a9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/universities/00000000-0000-0000-0000-000000000000/courses\n\n",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"universities",
+						"00000000-0000-0000-0000-000000000000",
+						"courses\n\n"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "ac289ece-4548-4c1d-9b0b-d65e59038087",
+					"name": "Get all courses of an invalid university",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/00000000-0000-0000-0000-000000000000/courses\n\n",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"00000000-0000-0000-0000-000000000000",
+								"courses\n\n"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The university with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update courses of a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "331a8d60-3234-4446-82f1-31ac2c162fad",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "86bea28a-8a6f-4adb-9c8a-d3d4fe2184d6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"{{course_id_2}}\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/universities/{{university_id}}/courses",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"universities",
+						"{{university_id}}",
+						"courses"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "772f5806-550a-4493-8125-3d5b1bccae4b",
+					"name": "Update courses of a university",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n       \"id\": \"{{course_id_2}}\"\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}/courses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}",
+								"courses"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n   \"name\": \"Universidad de los Andes\",\r\n   \"frontPage\": \"Welcome to the Andes university\",\r\n   \"country\": \"Colombia\",\r\n   \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\",\r\n\r\n   \"courses\": [\r\n       {\r\n       \"id\": \"ISIS3425\",\r\n       \"name\": \"Web Programming 3\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       }\r\n   ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update invalid courses of a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b76ba04-bba3-4742-87d6-a27788ee4943",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The course with the given id was not found\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "ca658960-810c-4846-89fa-805a678f25b5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/universities/{{university_id}}/courses",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"universities",
+						"{{university_id}}",
+						"courses"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "b0759eef-958c-47dc-a4e5-f5306a6057e2",
+					"name": "Update invalid courses of a user",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}/courses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}",
+								"courses"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The course with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update courses of an invalid university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "015ef959-2fd8-4fc8-817c-7e08c81710bc",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The university with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "5275fcfc-94ce-4ecc-bbbf-16c1cca99a57",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"{{course_id_2}}\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/universities/00000000-0000-0000-0000-000000000000/courses",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"universities",
+						"00000000-0000-0000-0000-000000000000",
+						"courses"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "ad8ebeb7-f780-4b06-b32d-47b937eb37e6",
+					"name": "Update courses of an invalid user",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n       \"id\": \"{{course_id_2}}\"\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/00000000-0000-0000-0000-000000000000/courses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"00000000-0000-0000-0000-000000000000",
+								"courses"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The university with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a course of a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fac77b42-5b09-4212-859f-25621e3851ae",
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "c8492616-6576-45bf-ac23-59725970f696",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/universities/{{university_id}}/courses{{course_id_2}}\n\n",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"universities",
+						"{{university_id}}",
+						"courses{{course_id_2}}\n\n"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "652d864b-2c54-421e-a401-cda5dc311fcf",
+					"name": "Delete a course of a university",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}/courses{{course_id_2}}\n\n",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}",
+								"courses{{course_id_2}}\n\n"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"cookie": []
+				}
+			]
+		},
+		{
+			"name": "Delete a course of an invalid university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "43479025-9f11-4391-9e9c-18549c01e63c",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The university with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "1e6ff952-b717-41e4-a02f-11ced619f2e0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/universities/00000000-0000-0000-0000-000000000000/courses/{{course_id_2}}.",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"universities",
+						"00000000-0000-0000-0000-000000000000",
+						"courses",
+						"{{course_id_2}}."
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "dfcc9430-2ff1-4cc3-b69b-8ed7e3f4f44d",
+					"name": "Delete a course of an invalid university",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/00000000-0000-0000-0000-000000000000/courses/{{course_id_2}}.",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"00000000-0000-0000-0000-000000000000",
+								"courses",
+								"{{course_id_2}}."
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The course with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid course of a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7af8f9f4-7a20-41ba-9d68-c153cceea879",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The course with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "162e7bf9-1dc4-410a-b9ca-bd8b9ab2605f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/universities/{{university_id}}/courses/00000000-0000-0000-0000-000000000000\n\n",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"universities",
+						"{{university_id}}",
+						"courses",
+						"00000000-0000-0000-0000-000000000000\n\n"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "feaabd4a-a727-416b-8fa1-02033c7332a4",
+					"name": "Delete an invalid course of a university",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{universities_id}}/courses/00000000-0000-0000-0000-000000000000\n\n",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{universities_id}}",
+								"courses",
+								"00000000-0000-0000-0000-000000000000\n\n"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The course with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a course non-associated to a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "412cb611-8d4f-497e-b294-8af4b5ac458f",
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The course with the given id is not associated to the museum\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "c468f1f9-4120-4305-b4ea-4222b370f6e5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/universities/{{university_id}}/courses/{{course_id_1}}\n\n",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"universities",
+						"{{university_id}}",
+						"courses",
+						"{{course_id_1}}\n\n"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "48ea82fc-8446-46c3-b346-fd31e9ebe45b",
+					"name": "Delete a course non-associated to a university",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}/courses/{{course_id_1}}\n\n",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}",
+								"courses",
+								"{{course_id_1}}\n\n"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The course does not exist to the given user\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "24512696-12c6-43d5-82c5-ec582078704a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "8b08f8dd-0e99-4ec7-86a7-7b49f061b8a0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "caf57b7f-41f2-46c7-90e3-ec6e047b0f44",
+			"key": "baseURL",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		},
+		{
+			"id": "8545e7b0-e168-4414-bb36-125d22283b70",
+			"key": "course_id_1",
+			"value": "ed0e9342-7702-48f7-9f05-efd0a8213d2a",
+			"type": "string"
+		},
+		{
+			"id": "85ffc6ca-52eb-4dc1-805b-38b9a9f00eaa",
+			"key": "university_id",
+			"value": "f09bc688-00bb-44d5-ad05-a7080cbe69f1",
+			"type": "string"
+		}
+	]
+}

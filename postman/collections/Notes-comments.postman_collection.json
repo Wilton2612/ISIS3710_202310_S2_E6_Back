@@ -1,0 +1,1825 @@
+{
+	"info": {
+		"_postman_id": "e8f8193f-909d-4768-bd31-1a4f8325698d",
+		"name": "Notes-comments",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "20511316-e8f8193f-909d-4768-bd31-1a4f8325698d"
+	},
+	"item": [
+		{
+			"name": "Add a note 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"note_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "0c322f2a-471f-468a-9862-cea0feb9cce8"
+					}
+				}
+			],
+			"id": "67aff529-66a0-4371-aaee-69b9c9d67713",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"title\": \"Matemáticas\",\r\n   \"text\": \"tercer capitulo\",\r\n   \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\" ,\r\n   \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"accessible\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/notes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "472da79d-e3e4-4ca2-b585-d3b180c4b4c7",
+					"name": "Add a note 1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\": \"Matemáticas\",\r\n   \"text\": \"tercer capitulo\",\r\n   \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\" ,\r\n   \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"accessible\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/notes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "237"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ed-f8TKXHhkI+IjcSakTRmIJYiw0cQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 12:26:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"title\": \"Matemáticas\",\n    \"text\": \"tercer capitulo\",\n    \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n    \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n    \"accessible\": \"true\",\n    \"id\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a comment 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"comment_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "ff094e56-d6ab-40ee-a095-5ff5e1645e3b"
+					}
+				}
+			],
+			"id": "eb386d02-56a9-4b96-986f-da2b93e8b779",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"rating\": 8,\r\n   \"text\": \"Muy buen apunte sobre los fundamentos básicos de infraestructura tecnológica, a mi gusto le faltan algunas cosas puntuales pero demás está bastante bien \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/comments",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"comments"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "fb58d624-93ed-4142-9f5b-bf7d473c843c",
+					"name": "Add a comment 1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"rating\": 8,\r\n   \"text\": \"Muy buen apunte sobre los fundamentos básicos de infraestructura tecnológica, a mi gusto le faltan algunas cosas puntuales pero demás está bastante bien \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/comments",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "186"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ba-nJ3ag9tfmHpQRsGOhpDMcqbS0nQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 12:27:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"rating\": 8,\n    \"text\": \"Muy buen apunte sobre los fundamentos básicos de infraestructura tecnológica, a mi gusto le faltan algunas cosas puntuales pero demás está bastante bien \",\n    \"id\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a comment 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"comment_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "4eb0dea8-97d7-4eee-9d8d-ed301d1fac47"
+					}
+				}
+			],
+			"id": "df61a616-23e5-4351-a3d3-8182af8b7474",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"rating\": 9,\r\n   \"text\": \"En general muy bien los apuntes....\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/comments",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"comments"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "5f7099b7-9f16-485c-88df-bb7cd01c225e",
+					"name": "Add a comment 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"rating\": 9,\r\n   \"text\": \"En general muy bien los apuntes....\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/comments",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "64"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"40-uwD+6oLKzrwCwUm/yNTZYeZQJlg\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 12:27:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"rating\": 9,\n    \"text\": \"En general muy bien los apuntes....\",\n    \"id\": 2\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a comment to a note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "e283e46e-50fa-49b5-8e0d-8cae39c33596"
+					}
+				}
+			],
+			"id": "8fc0aaa2-18e0-4987-99e6-11c677344281",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/notes/{{note_id}}/comments/{{comment_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id}}",
+						"comments",
+						"{{comment_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "31198622-1b3c-44b5-a3a9-900fde20d0ba",
+					"name": "Add a comment to a note",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/notes/{{note_id}}/comments/{{comment_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{note_id}}",
+								"comments",
+								"{{comment_id}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "437"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1b5-3FCFBN94r4uHbvngEc/ZdhRmc00\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 12:27:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"title\": \"Matemáticas\",\n    \"text\": \"tercer capitulo\",\n    \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n    \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n    \"accessible\": \"true\",\n    \"comments\": [\n        {\n            \"id\": 1,\n            \"rating\": 8,\n            \"text\": \"Muy buen apunte sobre los fundamentos básicos de infraestructura tecnológica, a mi gusto le faltan algunas cosas puntuales pero demás está bastante bien \"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add an invalid comment to a note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The comment with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "141ed394-3c7b-4dc3-90a6-14f3e1476d5e"
+					}
+				}
+			],
+			"id": "262de29b-33d7-44e9-9f06-ec2ffd53e9f3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/notes/{{note_id}}/comments/{{comment_id_0}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id}}",
+						"comments",
+						"{{comment_id_0}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "ef9a5d6c-e9e2-47f4-a2d7-1a666ac113b1",
+					"name": "Add an invalid comment to a note",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/notes/{{note_id}}/comments/{{comment_id_0}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{note_id}}",
+								"comments",
+								"{{comment_id_0}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "74"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4a-FslA+rr32Vs+kqHREoUydGM+6Og\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 12:27:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The comment with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a comment to an invalid note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The note with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "debe77f9-941d-43c7-8328-90a51c05acdc"
+					}
+				}
+			],
+			"id": "488a7e32-8823-4705-977f-056b2db1845c",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/notes/{{note_id_0}}/comments/{{comment_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id_0}}",
+						"comments",
+						"{{comment_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "2875f1a5-c076-4477-a759-f438c8a991cc",
+					"name": "Add a comment to an invalid note",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/notes/{{note_id_0}}/comments/{{comment_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{note_id_0}}",
+								"comments",
+								"{{comment_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-Iu4oMQeU79Bx16pF5BlnRm8cTbo\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 12:28:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The note with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a comment of a note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "d1d28650-b2f9-4b9f-906c-7c3824af05b5"
+					}
+				}
+			],
+			"id": "c5aef24d-40a4-4549-ae92-80ec1566a0ab",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/notes/{{note_id}}/comments/{{comment_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id}}",
+						"comments",
+						"{{comment_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "0d7b160e-2279-4df6-80e2-eefb1e311af1",
+					"name": "Get a comment of a note",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/notes/{{note_id}}/comments/{{comment_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{note_id}}",
+								"comments",
+								"{{comment_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "186"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ba-26vCLEzb68zvLHJa5s3pYWJSunA\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 12:28:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"rating\": 8,\n    \"text\": \"Muy buen apunte sobre los fundamentos básicos de infraestructura tecnológica, a mi gusto le faltan algunas cosas puntuales pero demás está bastante bien \"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid comment of a note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The comment with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "374d710a-d419-4e99-955c-bf5ca6c6d619"
+					}
+				}
+			],
+			"id": "9d96c032-deb7-4501-a191-23f3aed8cb5b",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/notes/{{note_id}}/comments/{{comment_id_0}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id}}",
+						"comments",
+						"{{comment_id_0}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "997b05f1-f7f4-4e8f-853b-63ceb79ec979",
+					"name": "Get an invalid comment of a note",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/notes/{{note_id}}/comments/{{comment_id_0}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{note_id}}",
+								"comments",
+								"{{comment_id_0}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "74"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4a-FslA+rr32Vs+kqHREoUydGM+6Og\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 12:29:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The comment with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a comment of an invalid note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The note with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "60dd8920-c69a-4126-998a-9dc2f21b91f9"
+					}
+				}
+			],
+			"id": "d72689e8-a409-43b6-8b56-8d8505896048",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/notes/{{note_id_0}}/comments/{{comment_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id_0}}",
+						"comments",
+						"{{comment_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "82f1bcd1-b7a6-4593-93df-b587c1c0e563",
+					"name": "Get a comment of an invalid note",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/notes/{{note_id_0}}/comments/{{comment_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{note_id_0}}",
+								"comments",
+								"{{comment_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-Iu4oMQeU79Bx16pF5BlnRm8cTbo\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 12:29:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The note with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a comment non-associated to a note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The comment with the given id is not associated to the note\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "b8be2d6d-1273-4594-be12-a95b7b1e90f1"
+					}
+				}
+			],
+			"id": "97db23a2-892c-4e63-bf44-15824bbce195",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/notes/{{note_id}}/comments/{{comment_id_1}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id}}",
+						"comments",
+						"{{comment_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "730a6f15-3d52-403b-b31a-89ea1699e63e",
+					"name": "Get a comment non-associated to a note",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/notes/{{note_id}}/comments/{{comment_id_1}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{note_id}}",
+								"comments",
+								"{{comment_id_1}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "90"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5a-Gk7tB4qoJ6vAJmbFqCx1u7Ry8U8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 12:31:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The comment with the given id is not associated to the note\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all comments of a note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "ca852587-7efe-453a-9a5c-273db971b23f"
+					}
+				}
+			],
+			"id": "34ddadc6-1398-4866-bfc9-a8fa789eea77",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/notes/{{note_id}}/comments",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id}}",
+						"comments"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "f69dea42-8607-4697-bed9-62d97045a423",
+					"name": "Get all comments of a note",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/notes/{{note_id}}/comments",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{note_id}}",
+								"comments"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "188"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"bc-viioeLB6UvlsEwH8Rhv43W/lnHQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 12:31:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"rating\": 8,\n        \"text\": \"Muy buen apunte sobre los fundamentos básicos de infraestructura tecnológica, a mi gusto le faltan algunas cosas puntuales pero demás está bastante bien \"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get all comments of an invalid note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The note with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "985e3239-8972-4f18-91cd-d092d75291fc"
+					}
+				}
+			],
+			"id": "ed9254fd-c1ce-4b8b-9749-cb179d616578",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/notes/{{note_id_0}}/comments",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id_0}}",
+						"comments"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "78e0e5fd-8e9c-401f-8aaf-5b60175bc8ca",
+					"name": "Get all comments of an invalid note",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/notes/{{note_id_0}}/comments",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{note_id_0}}",
+								"comments"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-Iu4oMQeU79Bx16pF5BlnRm8cTbo\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 12:31:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The note with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update the comments of a note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "ad18ac34-937a-48dd-a473-b90f6500f097"
+					}
+				}
+			],
+			"id": "6e230dd8-ce58-4c47-8b3e-50c5465ab483",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n        \"id\": 1,\r\n        \"rating\": 7,\r\n        \"text\": \"Muy buen apunte sobre los fundamentos básicos de infraestructura tecnológica, a mi gusto le faltan algunas cosas puntuales.\"\r\n    }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/notes/{{note_id}}/comments",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id}}",
+						"comments"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "aa6f6173-2ed7-4575-9db1-013452184779",
+					"name": "Update the comments of a note",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n       \"id\":1,\r\n        \"rating\": \"7\",\r\n        \"text\": \"En general muy bien los apuntes, sin embargo....\"\r\n    }\r\n]\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/notes/{{note_id}}/comments",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{note_id}}",
+								"comments"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "330"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"14a-Oin4PVPddSsaciT1fmOIJ5cA8Mo\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 12:32:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"title\": \"Matemáticas\",\n    \"text\": \"tercer capitulo\",\n    \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n    \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n    \"accessible\": \"true\",\n    \"comments\": [\n        {\n            \"id\": 1,\n            \"rating\": \"7\",\n            \"text\": \"En general muy bien los apuntes, sin embargo....\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Update the comments of an invalid note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The note with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "3bb34ed0-2525-4c54-9e08-dbe188bef00f"
+					}
+				}
+			],
+			"id": "d79addb6-3115-477b-bd63-657d98daf3bc",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n        \"id\": 1,\r\n        \"rating\": 7,\r\n        \"text\": \"Muy buen apunte sobre los fundamentos básicos de infraestructura tecnológica, a mi gusto le faltan algunas cosas puntuales.\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/notes/{{note_id_0}}/comments",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id_0}}",
+						"comments"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "e74caaba-951f-4e8b-8571-110bb500c906",
+					"name": "Update the comments of an invalid note",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n       \"id\":1,\r\n        \"rating\": \"7\",\r\n        \"text\": \"En general muy bien los apuntes, sin embargo....\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/notes/{{note_id_0}}/comments",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{note_id_0}}",
+								"comments"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-Iu4oMQeU79Bx16pF5BlnRm8cTbo\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 12:32:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The note with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a comment of an invalid note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The note with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "d5f3cb06-5e61-451c-8503-a58b11c42ca0"
+					}
+				}
+			],
+			"id": "12367968-7c36-4194-998c-327e67db38b7",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/notes/{{note_id_0}}/comments/{{comment_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id_0}}",
+						"comments",
+						"{{comment_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "af2384d2-ac90-43af-a7fb-7eaf314b2dda",
+					"name": "Delete a comment of an invalid note",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/notes/{{note_id_0}}/comments/{{comment_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{note_id_0}}",
+								"comments",
+								"{{comment_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-Iu4oMQeU79Bx16pF5BlnRm8cTbo\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 12:32:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The note with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid comment of a note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The comment with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "80946879-47d9-42b9-8ac6-b0e5ea03127a"
+					}
+				}
+			],
+			"id": "98604344-cbd4-4b2b-8963-8e84e36d7209",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/notes/{{note_id}}/comments/{{comment_id_0}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id}}",
+						"comments",
+						"{{comment_id_0}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "3e8f4b3f-3ac5-4fd7-a4e2-53be0c06874c",
+					"name": "Delete an invalid comment of a note",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/notes/{{note_id}}/comments/{{comment_id_0}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{note_id}}",
+								"comments",
+								"{{comment_id_0}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "74"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4a-FslA+rr32Vs+kqHREoUydGM+6Og\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 12:33:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The comment with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a comment non-associated to a note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The comment with the given id is not associated to the note\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "e0cd0989-e057-4925-af83-28b1c3a2c64f"
+					}
+				}
+			],
+			"id": "29471f6d-2cc2-4625-819d-ad55d5073e7e",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/notes/{{note_id}}/comments/{{comment_id_1}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id}}",
+						"comments",
+						"{{comment_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "d2a2249e-00e1-4ad6-b567-4687dae6e784",
+					"name": "Delete a comment non-associated to a note",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/notes/{{note_id}}/comments/{{comment_id_1}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{note_id}}",
+								"comments",
+								"{{comment_id_1}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "90"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5a-Gk7tB4qoJ6vAJmbFqCx1u7Ry8U8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 12:33:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The comment with the given id is not associated to the note\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a comment of a note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "1a1ca40b-6591-4373-80fc-524a3581139a"
+					}
+				}
+			],
+			"id": "c1b930d9-4908-4880-8d9d-fc28b99fb165",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/notes/{{note_id}}/comments/{{comment_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id}}",
+						"comments",
+						"{{comment_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "bb956a77-5df4-4264-b5af-e749db48259e",
+					"name": "Delete a comment of a note",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/notes/{{note_id}}/comments/{{comment_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{note_id}}",
+								"comments",
+								"{{comment_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 12:36:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "006cbce3-709c-4903-a31c-f90d2a1bbd58"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "aacd0685-6fd2-4a08-92e6-3cb3662d4faf"
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "6efab7cd-1139-4585-bbdd-ad90cb666524",
+			"key": "baseURL",
+			"value": " http://localhost:3000/api/v1",
+			"type": "string"
+		}
+	]
+}

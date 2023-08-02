@@ -1,0 +1,1156 @@
+{
+	"info": {
+		"_postman_id": "5a011a84-ffd6-4ad2-8d60-309701053e63",
+		"name": "Notes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "20511316-5a011a84-ffd6-4ad2-8d60-309701053e63"
+	},
+	"item": [
+		{
+			"name": "Login note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"token\", pm.response.json().token);"
+						],
+						"type": "text/javascript",
+						"id": "bf3ea013-25a7-409a-af57-5157ed50bcb6"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"id": "0b52690f-f43e-4126-9326-0e0558fd83c6"
+					}
+				}
+			],
+			"id": "0b169e95-e683-4983-8e99-0948ca88ea2d",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"username\": \"admin\",\r\n   \"password\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/privacyusers/login",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"privacyusers",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"note_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "1e472ae3-4393-4317-88a7-688a90ccd8f8"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"id": "ccae5bd0-760a-4278-a792-592ee032ae6f"
+					}
+				}
+			],
+			"id": "f873b45f-9600-4593-845a-a30a68031fb7",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"title\": \"Matemáticas\",\r\n   \"text\": \"tercer capitulo\",\r\n   \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\" ,\r\n   \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"accessible\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/notes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "327d6a81-3f3e-482f-babd-35597105fb39",
+					"name": "Add a note",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\": \"Matemáticas\",\r\n   \"text\": \"Primer capitulo\",\r\n   \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\" ,\r\n   \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"accessible\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/notes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"notes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "237"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ed-ljKYSljz47Q3O9PpHpG/NZ6sJdA\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 00:33:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"title\": \"Matemáticas\",\n    \"text\": \"Primer capitulo\",\n    \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n    \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n    \"accessible\": \"true\",\n    \"id\": 1\n}"
+				},
+				{
+					"id": "8cff3f4b-2ebc-4a46-86ed-a9bd5606cae2",
+					"name": "Add a note 1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\": \"Ciencias\",\r\n   \"text\": \"tercer capitulo\",\r\n   \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\" ,\r\n   \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"accessible\": \"false\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/notes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "234"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ea-excN6bEveEMXKqfUxcIH2ZDntgc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 00:35:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"title\": \"Ciencias\",\n    \"text\": \"tercer capitulo\",\n    \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n    \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n    \"accessible\": \"false\",\n    \"id\": 2\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a note with invalid paramaters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "f94a27c9-8504-4993-a3bb-c01ad5560ee4"
+					}
+				}
+			],
+			"id": "6dab934e-64f5-44f2-b2f3-015bd8d53af8",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"title\": \"\",\r\n   \"text\": \"Primer capitulo\",\r\n   \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\" ,\r\n   \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"accessible\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/notes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "b142f462-6e8f-4af5-afdc-95fd1ec85504",
+					"name": "Add a note with invalid paramaters",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\": \"\",\r\n   \"text\": \"Primer capitulo\",\r\n   \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\" ,\r\n   \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"accessible\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/notes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "79"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4f-9bGmhUETOFu68v5tQVQ462TXIcw\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 00:33:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"Cannot create an untitled note and accessibility\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all notes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of notes > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "b837ff14-571f-4c99-81f1-14e843d1e3f7"
+					}
+				}
+			],
+			"id": "8d2694c8-e3c0-4671-aa4a-77fbdd69cff4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/notes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "96aab4c1-50dc-4710-a9b3-17a0ebcfb870",
+					"name": "Get all notes",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/notes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "554"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"22a-4M1yDqobywq7unFx+MsvmQW+Sf0\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 00:35:27 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 2,\n        \"title\": \"Ciencias\",\n        \"text\": \"tercer capitulo\",\n        \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n        \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n        \"accessible\": \"false\",\n        \"comments\": [],\n        \"course\": null,\n        \"user\": null\n    },\n    {\n        \"id\": 1,\n        \"title\": \"Matemáticas\",\n        \"text\": \"Primer capitulo\",\n        \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n        \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n        \"accessible\": \"true\",\n        \"comments\": [],\n        \"course\": null,\n        \"user\": null\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get a note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "fb81b558-bb56-4bef-a91e-67319dcec814"
+					}
+				}
+			],
+			"id": "afd9d022-bed0-4f5f-96f2-136d7960039c",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/notes/{{note_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "89877c0e-696c-4372-8fef-d889a50e4119",
+					"name": "Get a note",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/notes/{{note_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{note_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "274"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"112-Ozu4LQs5uHY0syQGk/Mi0Vpyhp8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 00:38:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"title\": \"Ciencias\",\n    \"text\": \"tercer capitulo\",\n    \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n    \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n    \"accessible\": \"false\",\n    \"comments\": [],\n    \"course\": null,\n    \"user\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The note with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "09a33106-a2f2-43e9-b536-71d9e6824f61"
+					}
+				}
+			],
+			"id": "9f43d898-3fae-4dcf-b4fd-03b2889baec1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/notes/{{node_id_2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{node_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "7b491beb-342a-4756-96cf-d0d367b582d4",
+					"name": "Get an invalid note",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/notes/{{node_id_2}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{node_id_2}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-Iu4oMQeU79Bx16pF5BlnRm8cTbo\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 00:38:57 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The note with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update a note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "d4fe5841-6a01-4ebc-9005-e02317e53e50"
+					}
+				}
+			],
+			"id": "41909ad8-b74a-433a-ab69-974468cf146a",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"title\": \"Matemáticas\",\r\n   \"text\": \"Cuarto capitulo\",\r\n   \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"accessible\": \"true\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/notes/{{note_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "e8e9586e-4d25-41a4-bdac-5d8ca8fc6efd",
+					"name": "Update a note",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\": \"Matemáticas\",\r\n   \"text\": \"Cuarto capitulo\",\r\n   \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"accessible\": \"true\"\r\n   \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/notes/{{note_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{note_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "237"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ed-g5qFi1wWiE+dM5GKQBzP9SS749k\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 00:43:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"title\": \"Matemáticas\",\n    \"text\": \"Cuarto capitulo\",\n    \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n    \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n    \"accessible\": \"true\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update an invalid note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The note with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "6632c389-d819-4063-8cc9-34ce66cd007b"
+					}
+				}
+			],
+			"id": "dda8d1c5-3cf3-40a6-a2f2-a938174bf86d",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"title\": \"Matemáticas\",\r\n   \"text\": \"Cuarto capitulo\",\r\n   \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"accessible\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/notes/{{node_id_2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{node_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "864f8da6-64e9-4ca2-8d48-047ef2593355",
+					"name": "Update an invalid note",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\": \"Matemáticas\",\r\n   \"text\": \"Cuarto capitulo\",\r\n   \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"accessible\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/notes/{{node_id_2}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{node_id_2}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-Iu4oMQeU79Bx16pF5BlnRm8cTbo\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 00:43:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The note with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "8f2b54ab-db27-4b48-8f1e-acd3eabd81c6"
+					}
+				}
+			],
+			"id": "ef976a37-873b-4d9b-80cb-47792e230a39",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/notes/{{note_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "6f7bd9da-db56-4352-8ba6-143fd19883cd",
+					"name": "Delete a note",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/notes/{{note_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{note_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 00:44:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid note",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The note with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "9f58d546-2962-49d1-b457-1971d453c4c7"
+					}
+				}
+			],
+			"id": "7d3eec6a-3f55-4914-935d-5541ef885d28",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/notes/{{node_id_2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{node_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "0e156dc3-bf6f-4a67-90e6-0c85973bcdee",
+					"name": "Delete an invalid note",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/notes/{{node_id_2}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{node_id_2}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-Iu4oMQeU79Bx16pF5BlnRm8cTbo\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 00:44:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The note with the given id was not found\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "b047331c-c48d-4852-910a-3f5b7705287a"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "a365cc3a-b528-42ab-bb9c-39f2044158e4"
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "fdd3cffb-bfc4-4049-8cc5-4576576b26cf",
+			"key": "baseURL",
+			"value": " http://localhost:3000/api/v1",
+			"type": "string"
+		},
+		{
+			"id": "e8cac76e-bb29-402e-9b91-c9fa2fe67acd",
+			"key": "node_id_2",
+			"value": "0"
+		},
+		{
+			"id": "01768569-7e7a-47e5-ae2d-9ac4a5aa9022",
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTU0NTk2N30.AkVuo8YtvG5DKInLleu9Oupedb6oqEZsK3MoSK7XEtY"
+		}
+	]
+}

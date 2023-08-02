@@ -1,0 +1,686 @@
+{
+	"info": {
+		"_postman_id": "3058b3cb-1135-4ac8-9ec3-7de95f3a0738",
+		"name": "Comments Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "20511316-3058b3cb-1135-4ac8-9ec3-7de95f3a0738"
+	},
+	"item": [
+		{
+			"name": "Add a comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"comment_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "ace3f5cd-4e22-4555-9477-eaca537b6f44"
+					}
+				}
+			],
+			"id": "be5b0cb6-3b3d-4009-afe5-8cf00b51e079",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"rating\": 5,\r\n   \"text\": \"Muy buen apunte sobre los fundamentos básicos de infraestructura tecnológica, a mi gusto le faltan algunas cosas puntuales pero demás está bastante bien \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/comments",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"comments"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "eea796f2-b07f-4d7b-a7fa-facdef49c993",
+					"name": "Add a comment",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"puntuación\": \"8\",\r\n   \"comentario\": \"Muy buen apunte sobre los fundamentos básicos de infraestructura tecnológica, a mi gusto le faltan algunas cosas puntuales pero demás está bastante bien \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/comments",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 45687645,\n    \"rating\": 5,\n    \"text\": \"Muy buen apunte sobre los fundamentos básicos de infraestructura tecnológica, a mi gusto le faltan algunas cosas puntuales pero demás está bastante bien \"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "950e6d36-2add-4fba-b24c-128e52488a37"
+					}
+				}
+			],
+			"id": "1e0c8f8a-f5a9-4463-bb0d-3ee1ee45da26",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/comments",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"comments"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "1eb07ad7-3647-4f31-982f-5eddd3b47d21",
+					"name": "Get a comment",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/comments",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 578678676,\n    \"puntuación\": 5,\n    \"comentario\": \"Muy buen apunte sobre los fundamentos básicos de infraestructura tecnológica, a mi gusto le faltan algunas cosas puntuales pero demás está bastante bien \"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The Comment with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "f7d8cde4-0187-435e-b109-234c468db869"
+					}
+				}
+			],
+			"id": "0f64f7fd-e68c-4d59-8e97-1670b6d7fa17",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/comments/0",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"comments",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "cdea07eb-1c2b-494f-9d9c-fab4fc075dfd",
+					"name": "Get an invalid comment",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/comments/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"comments",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El comentario por el id dado no se encontró\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all comments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of comments > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "31cc5a21-1420-44c1-96b8-06426b023c20"
+					}
+				}
+			],
+			"id": "af82df63-85da-4727-aa94-795db085e60f",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/comments",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"comments"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "d0013aed-8277-4e97-921a-3037f0a3d63b",
+					"name": "Get all comments",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/comments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\r\n   {\r\n    \"id\": 456456456,\r\n    \"puntuación\": 5,\r\n    \"comentario\": \"Muy buen apunte sobre los fundamentos básicos de infraestructura tecnológica, a mi gusto le faltan algunas cosas puntuales pero demás está bastante bien \"\r\n}, \r\n{\r\n    \"id\": 48646486,\r\n    \"puntuación\": 2,\r\n    \"comentario\": \"Mal aporte, no me gustó \"\r\n}\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Update a comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "ca8be71e-b551-4199-917a-9ef23817a156"
+					}
+				}
+			],
+			"id": "1ecfb93d-77f4-40f9-bd61-c2f5450b4354",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 156456456,\r\n    \"rating\": 5,\r\n    \"text\": \"Aporte mediocre, no se entiende bien y el hilo del apunte se empieza a perder hacia el final \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/comments/{{comment_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"comments",
+						"{{comment_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "4f2efbb5-a74c-46d2-b278-efe945aa6646",
+					"name": "Update a comment",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"546845343\",\r\n    \"puntuación\": \"5\",\r\n    \"comentario\": \"Aporte mediocre, no se entiende bien y el hilo del apunte se empieza a perder hacia el final \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/comments/{{comment_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"comments",
+								"{{comment_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 56456456,\r\n    \"rating\": 3,\r\n    \"text\": \"Aporte mediocre, no se entiende bien y el hilo del apunte se empieza a perder hacia el final \"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update an invalid comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The Comment with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "318c5544-9af4-4818-a4a4-0ab099f8e565"
+					}
+				}
+			],
+			"id": "9ce6a5b5-ed87-437b-a7a7-b9f5da5e052e",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rating\": 5,\n    \"text\": \"Aporte mediocre, no se entiende bien y el hilo del apunte se empieza a perder hacia el final \"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/comments/0",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"comments",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "44b6c88e-78cc-42c1-8f0d-2022f882a458",
+					"name": "Update an invalid comment",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/comments/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"comments",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El comentario por el id dado no se encontró\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "5699812d-c8e7-4903-bae3-5ec7b1a0f643"
+					}
+				}
+			],
+			"id": "61ac9cb8-960a-4809-9653-5cdb0af36430",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/comments/{{comment_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"comments",
+						"{{comment_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "d5a9514b-4c88-46c5-aec4-b52a60b97b4b",
+					"name": "Delete a comment",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/comments/{{comment_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"comments",
+								"{{comment_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The comment with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "9f06a393-82cf-44f5-8e90-86c53b3d52e8"
+					}
+				}
+			],
+			"id": "5b61b9e2-65e1-4537-9f9a-e39fbd21c273",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/comments/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"comments",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "cd1883dd-b962-486c-887a-2e2fd880d858",
+					"name": "Delete an invalid comment",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/comments/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"comments",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El comentario por el id dado no se encontró\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"id": "06d839bc-4125-4589-aec7-95c3be9867bb",
+			"key": "baseURL",
+			"value": " http://localhost:3000/api/v1"
+		}
+	]
+}

@@ -1,0 +1,805 @@
+{
+	"info": {
+		"_postman_id": "0c2ce53e-da82-4527-8e02-17b7e4625d02",
+		"name": "Courses",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "20511316-0c2ce53e-da82-4527-8e02-17b7e4625d02"
+	},
+	"item": [
+		{
+			"name": "TOKEN Course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ef522051-569b-41df-896d-87b02c909ff8",
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"course_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "1f2a2656-e68d-45cc-a483-b72c5a5e5dbe",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \"name\": \"Web Programming\",\r\n        \"section\": \"2\",\r\n        \"code\":\"3201\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/course",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"course"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cb270494-8ee4-47f2-9a26-74e0b5156871",
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"course_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "e4badd4e-3339-40ee-aef7-f7329ef24085",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \"name\": \"Vectorial\",\r\n        \"section\": \"2\",\r\n        \"code\":\"3201\",\r\n       \"department\": \"Mathematics\",\r\n       \"image\": \"data:image/png;base64,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\"\r\n       \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/course",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"course"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "7634549f-adc0-4211-81fc-dad32489ea74",
+					"name": "Add a course",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n        \"code\":\"ISIS3543\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/courses",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n        \"id\": \"ISIS3245\",\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n   }"
+				}
+			]
+		},
+		{
+			"name": "Get all courses",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "56f46d20-599a-480c-86e3-53e371dec9a9",
+						"exec": [
+							"pm.test('Number of courses > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "a4027cf5-19fc-40d1-95a5-fd5e407bdf6c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/course",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"course"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "17ecdc1e-0142-46ca-9d69-86e473ee02d3",
+					"name": "Get all courses",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/courses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"courses"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\r\n   {\r\n       \"id\": \"86c5d05d-ac21-4daf-a285-9c00978ffb19\",\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\",\r\n       \"users\": [\r\n           {\r\n               \"id\": \"202020414\",\r\n               \"name\": \"Jairo Gómez\",\r\n               \"email\": \"jn.gomezm1@uniandes.edu.co\",\r\n               \"password\":\"xxxx-xxxx-xxxxx\",\r\n               \"user\":\"jngm8\",\r\n               \"image\": \"https://www.portrait.gov.au/files/b/b/2/c/i5398.jpg\"\r\n           },\r\n           {\r\n               \"id\": \"128590347\",\r\n               \"name\": \"Wilton Martinez\",\r\n               \"email\": \"wilton.1@uniandes.edu.co\",\r\n               \"password\":\"xxxx-xxxx-xxxxx\",\r\n               \"user\":\"wilton4\",\r\n               \"image\": \"https://www.portrait.gov.au/files/b/b/2/c/i5398.jpg\"\r\n           },\r\n           {\r\n               \"id\": \"2356876480\",\r\n               \"name\": \"Luis Plazas\",\r\n               \"email\": \"lucho8@uniandes.edu.co\",\r\n               \"password\":\"xxxx-xxxx-xxxxx\",\r\n               \"user\":\"luispla34\",\r\n               \"image\": \"https://www.portrait.gov.au/files/b/b/2/c/i5398.jpg\"\r\n           }\r\n       ] \r\n   },\r\n   {\r\n       \"id\": \"ce48a3bf-5961-4a0d-9f9b-7bd60b547180\",\r\n       \"name\": \"MOS\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"6\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\",\r\n       \"users\": [\r\n           {\r\n               \"id\": \"202020414\",\r\n               \"name\": \"Jairo Gómez\",\r\n               \"year\": 2020,\r\n               \"mainImage\": \"https://www.portrait.gov.au/files/b/b/2/c/i5398.jpg\"\r\n           },\r\n           {\r\n               \"id\": \"123456789\",\r\n               \"name\": \"Wilton Perea\",\r\n               \"year\": 2019,\r\n               \"mainImage\": \"https://www.bendigoregion.com.au/sites/default/files/2021-05/brett_whiteley_greg_self.jpg\"\r\n           },\r\n           {\r\n               \"id\": \"456787654\",\r\n               \"name\": \"Luis Plazas\",\r\n               \"year\": 2018,\r\n               \"mainImage\": \"https://www.bendigoregion.com.au/sites/default/files/2021-05/brett_whiteley_greg_dogs.jpg\"\r\n           }\r\n       ] \r\n   }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Get one course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c902b083-48dc-44b1-b84f-e2817003bc74",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "dda27268-46a0-4381-b415-1fa866852ee2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/course/f3a3f76b-452e-463f-b860-8d3a392f4d82",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"course",
+						"f3a3f76b-452e-463f-b860-8d3a392f4d82"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "ac1b401e-669b-448a-95b0-5f10ce747517",
+					"name": "Get one course",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/courses/{{course_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"courses",
+								"{{course_id}}"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n       \"id\": \"ISIS3425\",\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n        \"code\":\"ISIS3543\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\",\r\n       \"users\": [\r\n           {\r\n               \"id\": \"202020414\",\r\n               \"name\": \"Jairo Gómez\",\r\n               \"year\": 2020,\r\n               \"mainImage\": \"https://www.portrait.gov.au/files/b/b/2/c/i5398.jpg\"\r\n           },\r\n           {\r\n               \"id\": \"123456789\",\r\n               \"name\": \"Wilton Perea\",\r\n               \"year\": 2019,\r\n               \"mainImage\": \"https://www.bendigoregion.com.au/sites/default/files/2021-05/brett_whiteley_greg_self.jpg\"\r\n           },\r\n           {\r\n               \"id\": \"456787654\",\r\n               \"name\": \"Luis Plazas\",\r\n               \"year\": 2018,\r\n               \"mainImage\": \"https://www.bendigoregion.com.au/sites/default/files/2021-05/brett_whiteley_greg_dogs.jpg\"\r\n           }\r\n       ] \r\n   }"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d0495e1c-979d-465a-bcfb-67b5af4746fa",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The course with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "209fc774-5d43-4417-883e-11e36203aa8e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/course/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"course",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "b3a2f2e8-68b4-46b5-b4f4-54794deaf775",
+					"name": "Get an invalid course",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/course/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"course",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The course with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update a course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8ecb15a3-60bc-45b8-9eba-bdaf4623ce29",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "cd72413c-2050-40b6-aace-96478c39193a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \"name\": \"Web Programming\",\r\n        \"section\": \"2\",\r\n        \"code\": \"212\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/course/f3a3f76b-452e-463f-b860-8d3a392f4d82",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"course",
+						"f3a3f76b-452e-463f-b860-8d3a392f4d82"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "9b1b897f-6301-4e0c-8e0a-0f34c4f6ac76",
+					"name": "Update a course",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"id\": \"ISIS3425s\",\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/courses/{{course_id}}.",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"courses",
+								"{{course_id}}."
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n       \"id\": \"ISIS3425s\",\n       \"name\": \"Web Programming 2\",\n       \"department\": \"Systems Engineering\",\n       \"section\": \"8\",\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\n\n}"
+				}
+			]
+		},
+		{
+			"name": "Update an invalid course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "229cbaa3-3174-4370-9888-840ddecf1245",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The course with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "0b131820-0e9e-4645-8192-5328dd57cbbc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"MOS Programming\",\r\n        \"section\": \"21\",\r\n        \"code\":\"3201\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/course/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"course",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "9c641508-3387-44ef-8d5e-9e4b5e44354d",
+					"name": "Update an invalid course",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/courses/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"courses",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The course with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "33b0ca64-fda5-4105-9fa4-3cb9f48a5759",
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "bdc7fabc-474e-454a-bb41-53bb05fb4230",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/course/aa267949-48c6-4371-ba7c-27341e754f66",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"course",
+						"aa267949-48c6-4371-ba7c-27341e754f66"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "a662a308-a5c9-43f1-afa8-1d4c2d0eed62",
+					"name": "Delete a course",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/courses/{{course_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"courses",
+								"{{course_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1e6ff9e3-9a33-442c-a30d-f0037aa996ae",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The course with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "bd172bbf-8bba-4b48-a098-f62d93ab3aa7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/course/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"course",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "5bc3f8ba-984f-4230-9e96-fa2db7c302c5",
+					"name": "Delete an invalid museum",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/courses/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"courses",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The course with the given id was not found\"\r\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f030efb4-8ba2-4fca-a811-782c9256c8bd",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "20f86df7-f650-481b-95cf-38a9ded48366",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "0fba0078-4878-4acd-9195-64b3faaa5429",
+			"key": "baseURL",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		},
+		{
+			"id": "2617af9d-5368-49a5-ad1f-866be7d815c8",
+			"key": "course_id",
+			"value": "f3a3f76b-452e-463f-b860-8d3a392f4d82",
+			"type": "string"
+		},
+		{
+			"id": "9abdbd98-5e67-4602-8cca-c189f1aa0b6c",
+			"key": "course_id_1",
+			"value": "abcd",
+			"type": "string"
+		}
+	]
+}

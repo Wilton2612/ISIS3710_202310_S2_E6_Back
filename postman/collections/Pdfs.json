@@ -1,0 +1,454 @@
+{
+	"info": {
+		"_postman_id": "47acf727-2ed0-4203-92fe-af97ec4057f4",
+		"name": "Pdfs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "25957553-47acf727-2ed0-4203-92fe-af97ec4057f4"
+	},
+	"item": [
+		{
+			"name": "Add one Pdf",
+			"id": "46e66f79-7199-476a-99aa-d9f3f46d6374",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/pdfs",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"pdfs"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "897d0126-4941-43ca-a4b3-bbceba9b83bd",
+					"name": "Add one Pdf",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/pdfs",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"pdfs"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"url\": \"file:///C:/Users/cosmi/Desktop/Luis%20Plazas/UniAndes/7to%20Semestre/WEB/Quices/Preguntas%20sobre%20JavaScript.pdf\"\r\n   \r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get one pdf",
+			"id": "b8bdae05-d893-48d2-bd41-03e06ecbec14",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/pdfs/{{pdf_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"pdfs",
+						"{{pdf_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "377597ad-e3b3-4bf9-a66c-809e1024bcc9",
+					"name": "Get one pdf",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/pdfs/{{pdf_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"pdfs",
+								"{{pdf_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"url\": \"file:///C:/Users/cosmi/Desktop/Luis%20Plazas/UniAndes/7to%20Semestre/WEB/Quices/Preguntas%20sobre%20JavaScript.pdf\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid pdf",
+			"id": "49285d26-ff2c-447d-a297-d68956d5c048",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/pdfs/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pdfs",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "d1b4f189-58ba-467c-82a9-13df3bd18653",
+					"name": "Get an invalid pdf",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/pdfs/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pdfs",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The university with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all pdfs",
+			"id": "b9f79202-1029-4ef8-a3f9-b4f9e7901f6e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/pdfs",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pdfs"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "4884d6d2-d265-4ef5-9ba3-dd686444bd8d",
+					"name": "Get all pdfs",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/pdfs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pdfs"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\r\n       {\r\n           \"id\":\"46546846\",\r\n           \"url\":\"file:///C:/Users/cosmi/Desktop/Luis%20Plazas/UniAndes/7to%20Semestre/WEB/Quices/Respuestas%20sobre%20JavaScript.pdf\"  \r\n       },\r\n       {\r\n           \"id\":\"46546858\",\r\n           \"url\":\"file:///C:/Users/cosmi/Desktop/Luis%20Plazas/UniAndes/7to%20Semestre/WEB/Quices/Preguntas%20sobre%20JavaScript.pdf\"  \r\n       }\r\n\r\n   ]"
+				}
+			]
+		},
+		{
+			"name": "Update a pdf",
+			"id": "33ada0f0-9ad7-4416-a6b9-09b656229558",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"456465446489465456\",\r\n   \"url\": \"file:///C:/Users/cosmi/Desktop/Luis%20Plazas/UniAndes/7to%20Semestre/WEB/Quices/Preguntas%20sobre%20JavaScript.pdf\"\r\n   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/pdfs/{{university_id}}.",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pdfs",
+						"{{university_id}}."
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "4bdc5c8d-803f-45c6-95b6-83b25b526f4b",
+					"name": "Update a pdf",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"456465446489465456\",\r\n   \"url\": \"file:///C:/Users/cosmi/Desktop/Luis%20Plazas/UniAndes/7to%20Semestre/WEB/Quices/Preguntas%20sobre%20JavaScript.pdf\"\r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/pdfs/{{university_id}}.",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pdfs",
+								"{{university_id}}."
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"456465446489465456\",\n    \"url\": \"file:///C:/Users/cosmi/Desktop/Luis%20Plazas/UniAndes/7to%20Semestre/WEB/Quices/Preguntas%20sobre%20JavaScript.pdf\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update an invalid pdf",
+			"id": "a392fa37-0b17-4ad1-883a-e4fde80dbbc3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/pdfs/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pdfs",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "b7516198-47b5-4779-8719-8fd6120a7f3e",
+					"name": "Update an invalid pdf",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/pdfs/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pdfs",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The pdf with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a pdf",
+			"id": "abda6fff-8839-4f93-8e77-63057e7e295a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/pdfs/{{university_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pdfs",
+						"{{university_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "31c100ad-8731-4adb-88de-d7578f1b110d",
+					"name": "Delete a pdf",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/pdfs/{{university_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pdfs",
+								"{{university_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"cookie": []
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid pdf",
+			"id": "25ad6084-f704-425d-b132-73d0781388ff",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/pdfs/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"pdfs",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "2d9f2ba7-9c08-4dcc-95b4-d150ed763954",
+					"name": "Delete an invalid pdf",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/pdfs/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"pdfs",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The pdf with the given id was not found\"\n}"
+				}
+			]
+		}
+	]
+}

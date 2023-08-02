@@ -1,0 +1,789 @@
+{
+	"info": {
+		"_postman_id": "0803fcb4-01e4-481d-b96e-dc771fa60c05",
+		"name": "Universities",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "20511316-0803fcb4-01e4-481d-b96e-dc771fa60c05"
+	},
+	"item": [
+		{
+			"name": "TOKEN University",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ccbb6a16-4984-4d58-80bd-ec2eac0f5ec1",
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"university_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "f89a6d4a-bd1e-451d-ab41-41f4ed838f29",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\": \"Universidad de los Andes\",\r\n   \"description\": \"Welcome to the Andes university\",\r\n   \"country\": \"Colombia\",\r\n   \"address\":\"Carrera 1 No 25-12\",\r\n   \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/university",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"university"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "30f3ad62-790f-4b38-8d49-35be7bd8cbe5",
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"university_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "f7b0ce30-7ce0-4b4a-b272-9b2c4198bbcb",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\": \"Universidad de los Andes\",\r\n   \"description\": \"Welcome to the Andes university\",\r\n   \"country\": \"Colombia\",\r\n   \"address\":\"Carrera 1 No 25-12\",\r\n   \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/university",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"university"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "8100fd06-14d2-4323-ba1a-1f8c3b2a1661",
+					"name": "Add a university",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"Universidad de los Andes\",\r\n   \"frontPage\": \"Welcome to the Andes university\",\r\n   \"country\": \"Colombia\",\r\n   \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/universities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"universities"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n   \"name\": \"Universidad de los Andes\",\r\n   \"frontPage\": \"Welcome to the Andes university\",\r\n   \"country\": \"Colombia\",\r\n   \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all universities",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b6fd9939-4d3a-4537-9f42-41e010e3687c",
+						"exec": [
+							"pm.test('Number of universities > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "8bed2a98-a5b0-4e4e-bd33-c9a7440f24d4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/university",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"university"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "ef046536-713c-45ed-a60a-8cbcb1ee45e0",
+					"name": "Get all universities",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\r\n   {\r\n       \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n        \"name\": \"Universidad de los Andes\",\r\n        \"frontPage\": \"Welcome to the Andes university\",\r\n        \"country\": \"Colombia\",\r\n        \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\",\r\n            \r\n       \"courses\": [\r\n           {\r\n            \"id\": \"ISIS3245\",\r\n            \"name\": \"Web Programming\",\r\n            \"department\": \"Systems Engineering\",\r\n            \"section\": \"2\",\r\n            \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n\r\n           },\r\n           {\r\n               \"id\": \"ISIS3302\",\r\n                \"name\": \"MOS\",\r\n                \"department\": \"Systems Engineering\",\r\n                \"section\": \"6\",\r\n                \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n           }\r\n       ],\r\n       \"users\": [\r\n           {\r\n               \"id\": \"202020414\",\r\n               \"name\": \"Jairo Gómez\",\r\n               \"email\": \"jn.gomezm1@uniandes.edu.co\",\r\n               \"password\":\"xxxx-xxxx-xxxxx\",\r\n               \"user\":\"jngm8\",\r\n               \"image\": \"https://www.portrait.gov.au/files/b/b/2/c/i5398.jpg\"\r\n           },\r\n           {\r\n           \r\n               \"id\": \"128590347\",\r\n               \"name\": \"Wilton Martinez\",\r\n               \"email\": \"wilton.1@uniandes.edu.co\",\r\n               \"password\":\"xxxx-xxxx-xxxxx\",\r\n               \"user\":\"wilton4\",\r\n               \"image\": \"https://www.portrait.gov.au/files/b/b/2/c/i5398.jpg\"\r\n           }\r\n       ]\r\n   },\r\n   {\r\n       \"id\": \"184fhc7e-1276-11ed-861d-0242ac120002\",\r\n        \"name\": \"Universidad Javeriana\",\r\n        \"frontPage\": \"Welcome to the Javeriana university\",\r\n        \"country\": \"Colombia\",\r\n        \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\",\r\n       \"courses\": [\r\n           {\r\n            \"id\": \"Web563\",\r\n            \"name\": \"Web Programming\",\r\n            \"department\": \"Systems Engineering\",\r\n            \"section\": \"6\",\r\n            \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n\r\n           },\r\n           {\r\n               \"id\": \"Math463\",\r\n                \"name\": \"Calculus\",\r\n                \"department\": \"Mathematics\",\r\n                \"section\": \"63\",\r\n                \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n           }\r\n       ],\r\n       \"users\": [\r\n           {\r\n               \"id\": \"234543\",\r\n               \"name\": \"Carlos Gómez\",\r\n               \"email\": \"carlos@javeriana.edu.co\",\r\n               \"password\":\"xxxx-xxxx-xxxxx\",\r\n               \"user\":\"carlitos8\",\r\n               \"image\": \"https://www.portrait.gov.au/files/b/b/2/c/i5398.jpg\"\r\n           },\r\n           {\r\n               \"id\": \"1234567\",\r\n               \"name\": \"Pedro Gómez\",\r\n               \"email\": \"pedro@javeriana.edu.co\",\r\n               \"password\":\"xxxx-xxxx-xxxxx\",\r\n               \"user\":\"pedrozki234\",\r\n               \"image\": \"https://www.portrait.gov.au/files/b/b/2/c/i5398.jpg\"\r\n           }\r\n       ]\r\n   }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Get one university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8cad09be-912f-40f8-9d96-a9558807a0ad",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "a8222dde-5267-4e05-bd8c-313de89ea27b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/university/{{university_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"university",
+						"{{university_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "113b5c2a-e5e9-4dad-8260-9e9cba34d01f",
+					"name": "Get one university",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": " {\r\n        \"name\": \"Universidad de los Andes\",\r\n        \"frontPage\": \"Welcome to the Andes university\",\r\n        \"country\": \"Colombia\",\r\n        \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\",\r\n            \r\n       \"courses\": [\r\n           {\r\n            \"id\": \"ISIS3245\",\r\n            \"name\": \"Web Programming\",\r\n            \"department\": \"Systems Engineering\",\r\n            \"section\": \"2\",\r\n            \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n\r\n           },\r\n           {\r\n               \"id\": \"ISIS3302\",\r\n                \"name\": \"MOS\",\r\n                \"department\": \"Systems Engineering\",\r\n                \"section\": \"6\",\r\n                \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n           }\r\n       ],\r\n       \"users\": [\r\n           {\r\n               \"id\": \"202020414\",\r\n               \"name\": \"Jairo Gómez\",\r\n               \"email\": \"jn.gomezm1@uniandes.edu.co\",\r\n               \"password\":\"xxxx-xxxx-xxxxx\",\r\n               \"user\":\"jngm8\",\r\n               \"image\": \"https://www.portrait.gov.au/files/b/b/2/c/i5398.jpg\"\r\n           },\r\n           {\r\n           \r\n               \"id\": \"128590347\",\r\n               \"name\": \"Wilton Martinez\",\r\n               \"email\": \"wilton.1@uniandes.edu.co\",\r\n               \"password\":\"xxxx-xxxx-xxxxx\",\r\n               \"user\":\"wilton4\",\r\n               \"image\": \"https://www.portrait.gov.au/files/b/b/2/c/i5398.jpg\"\r\n           }\r\n       ]\r\n   }"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4e7d8ddc-e061-4c71-ae32-9a80f81c0d8f",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The university with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "e4f7a910-6677-48a4-a979-9b566e8d97a1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/university/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"university",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "b8cf692a-f817-43bb-9c37-d45228907b7d",
+					"name": "Get an invalid university",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The university with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "514458c8-a9c6-45e6-bcc1-eaceb47769cb",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "1685fe8d-eee0-42c2-9147-743ac269cefd",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\": \"Universidad de los Andes\",\r\n   \"description\": \"Welcome to the Andes university\",\r\n   \"country\": \"Colombia, Bogotá\",\r\n   \"address\":\"Carrera 1 No 123\",\r\n   \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/university/{{university_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"university",
+						"{{university_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "6652c750-b2f9-43ed-a0cb-4093cd1bfbe7",
+					"name": "Update a univerisity",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n       \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n        \"name\": \"Universidad de los Andes\",\r\n        \"frontPage\": \"Welcome to the Andes university\",\r\n        \"country\": \"Colombia\",\r\n        \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}.",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}."
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": " {\n       \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n        \"name\": \"Universidad de los Andes\",\n        \"frontPage\": \"Welcome to the Andes university, the best univesty in Colombia\",\n        \"country\": \"Colombia\",\n        \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\"\n }"
+				}
+			]
+		},
+		{
+			"name": "Update an invalid university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cc223799-791f-4f94-ba3a-a5e5a5f0107b",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The university with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "94ceb09a-b4fb-40cf-a91c-c77eb7c6ac6a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\": \"Universidad Javeriana\",\r\n   \"description\": \"Welcome to the Javeriana university\",\r\n   \"country\": \"Colombia, Bogotá\",\r\n   \"address\":\"Carrera 1 No 123\",\r\n   \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/university/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"university",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "998665bd-2792-41a0-80f1-37d667d7d488",
+					"name": "Update an invalid univesity",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/univesities/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"univesities",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The university with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f8e9fcdb-868d-4d35-8457-9b97b67151cc",
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "6e8b1f20-6a70-44aa-ad81-dac392321ed8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/university/{{university_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"university",
+						"{{university_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "c6021325-2c9c-4ebe-b40d-50acd6dffd7c",
+					"name": "Delete a university",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid universities",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "95fd4845-f90e-48f7-b976-bbb358d9b82e",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The university with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "ee387835-6700-42a6-bfce-283966fae87e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/university/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"university",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "4241ebeb-380d-47f0-ba46-13f2d3bcaae3",
+					"name": "Delete an invalid university",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The university with the given id was not found\"\r\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "277101b6-048c-4103-bdbd-180c8e19bf0a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5d3ca9a1-db57-4288-b4f9-cb0e3dc84895",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "94fb164f-3809-4e54-8aaf-e905d6834b28",
+			"key": "baseURL",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		},
+		{
+			"id": "84618066-497d-432e-9c8b-de39323baf98",
+			"key": "university_id",
+			"value": "6b2c8261-4905-4130-b4f5-5776a9ad68c2",
+			"type": "string"
+		}
+	]
+}

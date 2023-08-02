@@ -1,0 +1,998 @@
+{
+	"info": {
+		"_postman_id": "b935cf87-5b04-4410-bdc8-f778fdefa3c2",
+		"name": "Users-Courses",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "17660274-b935cf87-5b04-4410-bdc8-f778fdefa3c2"
+	},
+	"item": [
+		{
+			"name": "Add a course to a user",
+			"id": "03357391-8b25-4a0c-9437-37bd50b797ea",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users/{{user_id}}/courses/{{course_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"courses",
+						"{{course_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "c5da801e-3108-41f5-a38f-1996d2d63300",
+					"name": "Add a course to a user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/{{user_id}}/courses/{{course_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"courses",
+								"{{course_id_1}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"202020414\",\n    \"name\": \"Jairo Gómez\",\n    \"email\": \"jn.gomezm1\",\n    \"password\": \"xxx-xxx-xxx.\",\n    \"user\": \"jngm8\",\n    \"image\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\n    \"courses\": [\n        {\n            \"id\": \"ISIS3302\",\n            \"name\": \"MOS\",\n            \"department\": \"Systems Engineering\",\n            \"section\": \"6\",\n            \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\n        },\n        {\n            \"id\": \"ISIS3425\",\n            \"name\": \"Web Programming\",\n            \"department\": \"Systems Engineering\",\n            \"section\": \"2\",\n            \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add an invalid course to a user",
+			"id": "f0c8f35c-67e0-4ca9-a550-d23df9de307a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users/{{user_id}}/courses/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"courses",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "3622749b-0ede-49ed-b1ec-9196ee681011",
+					"name": "Add an invalid course to a user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/{{user_id}}/courses/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"courses",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The course with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a course to an invalid user",
+			"id": "601f1083-aa78-4aeb-8e5b-b3f3d95068c8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users/00000000-0000-0000-0000-000000000000/courses/{{course_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						"00000000-0000-0000-0000-000000000000",
+						"courses",
+						"{{course_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "60429357-4798-41f1-99cb-bb927e8c0ec4",
+					"name": "Add a course to an invalid user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/00000000-0000-0000-0000-000000000000/courses/{{course_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"00000000-0000-0000-0000-000000000000",
+								"courses",
+								"{{course_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The user with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a course of a user",
+			"id": "ba91cac0-bf6c-456f-847e-46966a616623",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users/{{user_id}}/courses/{{course_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"courses",
+						"{{course_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "b92f4a42-513a-499d-a0d1-b0a6cdb6ca04",
+					"name": "Get a course of a user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/{{user_id}}/courses/{{course_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"courses",
+								"{{course_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n       \"id\": \"ISIS3425\",\n       \"name\": \"Web Programming\",\n       \"department\": \"Systems Engineering\",\n       \"section\": \"2\",\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid course of a user",
+			"id": "e146c6f9-5b51-4861-beaa-7cd16e450e86",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users/{{user_id}}/courses/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"courses",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "fa752096-cd20-4fe4-b4b1-70ca008a38e7",
+					"name": "Get an invalid course of a user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/courses/{{course_id}}/users/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"courses",
+								"{{course_id}}",
+								"users",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The course with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a course of an invalid user",
+			"id": "9d8306bd-1a87-4a23-a74f-e1a4dac27ae7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users/00000000-0000-0000-0000-000000000000/courses/{{courses_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						"00000000-0000-0000-0000-000000000000",
+						"courses",
+						"{{courses_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "9768e26f-eea8-48ff-9912-4e5c98ae2df6",
+					"name": "Get a course of an invalid user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/00000000-0000-0000-0000-000000000000/courses/{{course_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"00000000-0000-0000-0000-000000000000",
+								"courses",
+								"{{course_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The user with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a course non-associated to a user",
+			"id": "a915dbc1-c945-400f-bbae-6bceb487eac6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users/{{user_id}}/courses/{{course_id_2}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"courses",
+						"{{course_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "575c7b7a-c417-4595-95f8-761a9c245cb2",
+					"name": "Get a course non-associated to a user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/{{user_id}}/courses/{{course_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"courses",
+								"{{course_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 412,\r\n   \"message\": \"The course with the given id is not associated to the user\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all courses of a user",
+			"id": "9b4df114-0b12-4f13-a73f-2bebb34a8ed9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users/{{user_id}}/courses",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"courses"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "3d3a5478-b87e-4011-b43c-c356468532d8",
+					"name": "Get all courses of a user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/{{user_id}}/courses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"courses"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "   {\r\n       \"id\": \"ISIS3425\",\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n   }"
+				}
+			]
+		},
+		{
+			"name": "Get all courses of an invalid user",
+			"id": "b09edb19-03e1-4822-a7eb-89c87466dd6c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users/00000000-0000-0000-0000-000000000000/courses\n\n",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						"00000000-0000-0000-0000-000000000000",
+						"courses\n\n"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "de1b7b71-8e5d-4e72-a47d-cf4ce89ca3af",
+					"name": "Get all courses of an invalid user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The user with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update courses of a user",
+			"id": "d7042a7d-c9d2-4240-b7b6-bf17bf6e5306",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"{{course_id_2}}\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/users/{{user_id}}/courses",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"courses"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "905874af-6882-4347-bf6d-48cc293a0585",
+					"name": "Update courses of a user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/{{user_id}}/courses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"courses"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n               \"id\": \"202020414\",\r\n               \"name\": \"Jairo Gómez\",\r\n               \"email\": \"jn.gomezm1@uniandes.edu.co\",\r\n               \"password\":\"xxxx-xxxx-xxxxx\",\r\n               \"user\":\"jngm8\",\r\n               \"image\": \"https://www.portrait.gov.au/files/b/b/2/c/i5398.jpg\",\r\n   \"courses\": [\r\n       {\r\n       \"id\": \"ISIS3425\",\r\n       \"name\": \"Web Programming 2\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       }\r\n   ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update courses of a user",
+			"id": "1a977567-6019-4911-9871-69d291b57adf",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users/{{user_id}}/courses",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"courses"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "cabc4711-9526-487c-b272-7d686a8fa66e",
+					"name": "Update courses of a user",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/{{user_id}}/courses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"courses"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"202020414\",\n    \"name\": \"Jairo Gómez\",\n    \"email\": \"jn.gomezm1\",\n    \"password\": \"xxx-xxx-xxx.\",\n    \"user\": \"jngm8\",\n    \"image\": \"https://www.si.edu/sites/default/files/newsdesk/fact_sheets/nhb2015-02891.jpg\",\n    \"courses\": [\n        {\n            \"id\": \"ISIS3402\",\n            \"name\": \"Chemistry\",\n            \"department\": \"Systems Engineering\",\n            \"section\": \"34\",\n            \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\n        },\n        {\n            \"id\": \"ISIS3425\",\n            \"name\": \"Web Programming 1\",\n            \"department\": \"Systems Engineering\",\n            \"section\": \"2\",\n            \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Update invalid courses of a user",
+			"id": "601739c2-9c55-4dce-9fb0-b8b91527c304",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/users/{{user_id}}/courses",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"courses"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "25246620-c94d-40cd-941e-bebd6cf3d399",
+					"name": "Update invalid courses of a user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The course with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update courses of an invalid user",
+			"id": "56ea5022-7199-4d38-a80e-d9ee65cd9c9d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"{{course_id_2}}\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/users/00000000-0000-0000-0000-000000000000/courses",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						"00000000-0000-0000-0000-000000000000",
+						"courses"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "8f533490-d239-4509-888f-f3c829a2268a",
+					"name": "Update courses of an invalid user",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n       \"id\": \"{{course_id_2}}\"\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/00000000-0000-0000-0000-000000000000/courses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"00000000-0000-0000-0000-000000000000",
+								"courses"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The user with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a course of a user",
+			"id": "22e71b13-e5cb-49f1-b935-75839f175316",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users/{{user_id}}/courses{{course_id_2}}\n\n",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"courses{{course_id_2}}\n\n"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "2f1844a6-c0eb-4ae7-a8a7-d391b5a6885f",
+					"name": "Delete a course of a user",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/{{user_id}}/courses{{course_id_2}}\n\n",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"courses{{course_id_2}}\n\n"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"cookie": []
+				}
+			]
+		},
+		{
+			"name": "Delete a course of an invalid user",
+			"id": "c4217b77-7bb1-4e21-8251-cf0dd9055e2b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users/00000000-0000-0000-0000-000000000000/courses/{{course_id_2}}.",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						"00000000-0000-0000-0000-000000000000",
+						"courses",
+						"{{course_id_2}}."
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "4760a6d1-7b59-4c8f-a031-397a94dd9463",
+					"name": "Delete a course of an invalid user",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/00000000-0000-0000-0000-000000000000/courses/{{course_id_2}}.",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"00000000-0000-0000-0000-000000000000",
+								"courses",
+								"{{course_id_2}}."
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The course with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid course of a user",
+			"id": "3ecb61e9-0841-4a24-b9f1-e00c92804ba9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users/{{user_id}}/courses/00000000-0000-0000-0000-000000000000\n\n",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"courses",
+						"00000000-0000-0000-0000-000000000000\n\n"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "f95aeda3-4e1f-4e27-9aca-80c208e6abed",
+					"name": "Delete an invalid course of a user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The course with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a course non-associated to a user",
+			"id": "5031502e-0129-4132-95fa-4bf0636ccc0b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users/{{user_id}}/courses/{{course_id_1}}\n\n",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"courses",
+						"{{course_id_1}}\n\n"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "11f7b2ac-f46e-4b21-9eaf-98095a4dcca8",
+					"name": "Delete a course non-associated to a user",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/{{user_id}}/courses/{{course_id_1}}\n\n",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"courses",
+								"{{course_id_1}}\n\n"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The course does not exist to the given user\"\n}"
+				}
+			]
+		}
+	]
+}

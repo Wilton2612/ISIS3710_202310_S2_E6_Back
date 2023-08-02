@@ -1,0 +1,604 @@
+{
+	"info": {
+		"_postman_id": "bdc79d8b-a663-4b7c-964d-9d986a3959af",
+		"name": "AA-Run Once, Create all",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "20511316-bdc79d8b-a663-4b7c-964d-9d986a3959af"
+	},
+	"item": [
+		{
+			"name": "Courses",
+			"item": [
+				{
+					"name": "Add Estadistica",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cb270494-8ee4-47f2-9a26-74e0b5156871",
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"course_id\", data.id);\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"   pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "a7d9c5a7-f357-465b-b110-a568b04f2262",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"name\": \"Estadistica\",\r\n        \"section\": \"4\",\r\n        \"code\":\"ESTD-3201\",\r\n       \"department\": \"Mathematics\",\r\n       \"image\": \"https://isdfundacion.org/wp-content/uploads/2019/11/Plantilla-entradas-ESTADISTICA-1.jpg\"\r\n       \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/course",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"course"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "10feac20-a320-40a0-b6bd-6c28d8476d15",
+							"name": "Add Estadistica",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n        \"code\":\"ISIS3543\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/courses",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"courses"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"name": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n        \"id\": \"ISIS3245\",\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n   }"
+						}
+					]
+				},
+				{
+					"name": "Add Vectorial",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cb270494-8ee4-47f2-9a26-74e0b5156871",
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"course_id\", data.id);\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"   pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "5a02b191-43f0-4a98-ad0f-b83dec6832b8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"name\": \"Calculus II\",\r\n        \"section\": \"4\",\r\n        \"code\":\"VEC-269\",\r\n       \"department\": \"Mathematics\",\r\n       \"image\": \"data:image/png;base64,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\"\r\n       \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/course",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"course"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "f708bbcd-ef39-4e8d-a704-8887365c55c3",
+							"name": "Add Estadistica",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n        \"code\":\"ISIS3543\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/courses",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"courses"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"name": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n        \"id\": \"ISIS3245\",\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n   }"
+						}
+					]
+				},
+				{
+					"name": "Add Quimica",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cb270494-8ee4-47f2-9a26-74e0b5156871",
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"course_id\", data.id);\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"   pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "9b6451d4-8e6b-4cd5-8b4b-66698850fa92",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"name\": \"Chemistry\",\r\n        \"section\": \"9\",\r\n        \"code\":\"CHEM-635\",\r\n       \"department\": \"Science\",\r\n       \"image\": \"https://aprendihoy.com/wp-content/uploads/2021/01/featured-image-chemistry.png\"\r\n       \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/course",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"course"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "0b2be017-73a4-47d0-947a-b0e75442a2b4",
+							"name": "Add Estadistica",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n        \"code\":\"ISIS3543\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/courses",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"courses"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"name": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n        \"id\": \"ISIS3245\",\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n   }"
+						}
+					]
+				},
+				{
+					"name": "Add Biology",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cb270494-8ee4-47f2-9a26-74e0b5156871",
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"course_id\", data.id);\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"   pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "9234a7e6-c517-46f0-a0c4-43c43d352807",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"name\": \"Biology\",\r\n        \"section\": \"1\",\r\n        \"code\":\"BIO-324\",\r\n       \"department\": \"Science\",\r\n       \"image\": \"https://www.educaciontrespuntocero.com/wp-content/uploads/2021/10/infografias-Biologia-destacada-min-978x652.jpg\"\r\n       \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/course",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"course"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "c1ed383b-dc88-4ade-8011-ddf6416dcb66",
+							"name": "Add Estadistica",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n        \"code\":\"ISIS3543\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/courses",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"courses"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"name": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n        \"id\": \"ISIS3245\",\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n   }"
+						}
+					]
+				},
+				{
+					"name": "Add Ingles",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cb270494-8ee4-47f2-9a26-74e0b5156871",
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"course_id\", data.id);\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"   pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "b5009101-da65-4c5a-998f-14c23427154a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"name\": \"English\",\r\n        \"section\": \"4\",\r\n        \"code\":\"ENG-139\",\r\n       \"department\": \"Languages\",\r\n       \"image\": \"https://img.freepik.com/vector-gratis/fondo-libro-ingles-dibujado-mano_23-2149483336.jpg?w=2000\"\r\n       \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/course",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"course"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "b4915da3-01be-4914-855c-399f9d38edf3",
+							"name": "Add Estadistica",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n        \"code\":\"ISIS3543\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/courses",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"courses"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"name": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n        \"id\": \"ISIS3245\",\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n   }"
+						}
+					]
+				},
+				{
+					"name": "Add Arts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cb270494-8ee4-47f2-9a26-74e0b5156871",
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"course_id\", data.id);\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"   pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "d00e0b27-90c6-4119-b849-72a5a11f0e56",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"name\": \"Arts\",\r\n        \"section\": \"7\",\r\n        \"code\":\"ART-348\",\r\n       \"department\": \"Expression\",\r\n       \"image\": \"https://imagenes.universia.net/gc/net/images/educacion/5/5-/5-s/5-salidas-profesionales-en-artes-digitales.jpg\"\r\n       \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/course",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"course"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "c52d266d-f327-407f-9f0d-8bac582dc08d",
+							"name": "Add Estadistica",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n        \"code\":\"ISIS3543\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/courses",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"courses"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"name": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n        \"id\": \"ISIS3245\",\r\n       \"name\": \"Web Programming\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n   }"
+						}
+					]
+				}
+			],
+			"id": "209f9f9b-b9c8-457e-b066-54fe21985b5f"
+		}
+	]
+}

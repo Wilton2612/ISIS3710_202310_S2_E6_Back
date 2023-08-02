@@ -1,0 +1,2179 @@
+{
+	"info": {
+		"_postman_id": "a7b2a8d0-0651-4451-ac95-7a667d9aed9c",
+		"name": "Courses-notes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "20511316-a7b2a8d0-0651-4451-ac95-7a667d9aed9c"
+	},
+	"item": [
+		{
+			"name": "Login note 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"token\", pm.response.json().token);"
+						],
+						"type": "text/javascript",
+						"id": "14dbb961-a671-4531-b46e-9510c33e9bb2"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"id": "bb7c5a50-6786-4630-b709-a0cbade9a2ef"
+					}
+				}
+			],
+			"id": "b85e93f4-1683-4d90-b12e-9d2f79168087",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"username\": \"admin\",\r\n   \"password\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/privacyusers/login",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"privacyusers",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a course 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f8eb25b8-a1ce-47de-9298-3ef5d3815aff",
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"course_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "dc73384f-8532-49fc-84af-de8130e82d1f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \"name\": \"Web Programming\",\r\n       \"section\": \"2\",\r\n       \"code\": \"ISIS2345\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"image\": \"https://www.definicionabc.com/wp-content/uploads/2015/06/Ciencias-Computacion.jpg\"\r\n       \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/course",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"course"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "a4b44686-2083-4037-9cf5-2bbcdf84c1f0",
+					"name": "Add a course 1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"name\": \"Web Programming\",\r\n       \"section\": \"2\",\r\n       \"code\": \"ISIS2345\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/course",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"course"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "366"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"16e-0vDbQSlEEmwFGcoX7QOYLVjdkR4\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 01:55:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Web Programming\",\n    \"section\": \"2\",\n    \"code\": \"ISIS2345\",\n    \"department\": \"Systems Engineering\",\n    \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\",\n    \"id\": \"b4f31b86-5623-4989-8bd4-76fc5cbf4347\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a note 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"note_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "3234acd8-b9b4-4b6a-8268-76859492f174"
+					}
+				}
+			],
+			"id": "a1a48b02-f7a0-4bb6-8876-c85435e86fbb",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"title\": \"Matemáticas\",\r\n   \"text\": \"tercer capitulo\",\r\n   \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\" ,\r\n   \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"accessible\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/notes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "e54220fc-23d2-40b0-9df5-99866508a966",
+					"name": "Add a note 1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\": \"Matemáticas\",\r\n   \"text\": \"tercer capitulo\",\r\n   \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\" ,\r\n   \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"accessible\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/notes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "237"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ed-f8TKXHhkI+IjcSakTRmIJYiw0cQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 01:57:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"title\": \"Matemáticas\",\n    \"text\": \"tercer capitulo\",\n    \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n    \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n    \"accessible\": \"true\",\n    \"id\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a note 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"note_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "0951f5f2-2491-4cb5-a647-df0fff21176e"
+					}
+				}
+			],
+			"id": "afd3b6dc-2655-4e7f-b2bf-a09dc7e33d7d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"title\": \"Ciencias\",\r\n   \"text\": \"quinto capitulo\",\r\n   \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\" ,\r\n   \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"accessible\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/notes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "efd5c3e0-070f-48de-90c6-633f4d949ad9",
+					"name": "Add a note 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"title\": \"Ciencias\",\r\n   \"text\": \"quinto capitulo\",\r\n   \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\" ,\r\n   \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"accessible\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/notes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "233"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e9-ALXcJVyD0PHGr4R9eMvjUL5Ed7k\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 06:12:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"title\": \"Ciencias\",\n    \"text\": \"quinto capitulo\",\n    \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n    \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n    \"accessible\": \"true\",\n    \"id\": 2\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a note to a course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "59f81206-5cbf-4494-ac6a-16fa2bd877f0"
+					}
+				}
+			],
+			"id": "82d35d4a-76f5-4e04-92ba-a720611ca57d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/courses/{{course_id}}/notes/{{note_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"courses",
+						"{{course_id}}",
+						"notes",
+						"{{note_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "2ab85549-0418-4248-b795-5d94936b1d1c",
+					"name": "Add a note to a course",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course_id}}/notes/{{note_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course_id}}",
+								"notes",
+								"{{note_id}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "614"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"266-8syDp8C0viLLka5sd+45Oj75TL0\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 01:57:57 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"b4f31b86-5623-4989-8bd4-76fc5cbf4347\",\n    \"name\": \"Web Programming\",\n    \"section\": \"2\",\n    \"code\": \"ISIS2345\",\n    \"department\": \"Systems Engineering\",\n    \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\",\n    \"notes\": [\n        {\n            \"id\": 1,\n            \"title\": \"Matemáticas\",\n            \"text\": \"tercer capitulo\",\n            \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n            \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n            \"accessible\": \"true\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add an invalid note to a course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The note with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "b50d2cc3-9d99-482b-8080-ac744f51552f"
+					}
+				}
+			],
+			"id": "02368e0e-23d2-4d4a-9888-231d3b82ed75",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/courses/{{course_id}}/notes/{{note_id_0}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"courses",
+						"{{course_id}}",
+						"notes",
+						"{{note_id_0}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "0aacc4f6-f521-4303-bc90-d69fb09538aa",
+					"name": "Add an invalid note to a course",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course_id}}/notes/{{note_id_1}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course_id}}",
+								"notes",
+								"{{note_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-Iu4oMQeU79Bx16pF5BlnRm8cTbo\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 01:58:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The note with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a note to an invalid course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The course with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "79e0efdf-7a0f-4929-ac99-8a1ffb8f9ddb"
+					}
+				}
+			],
+			"id": "ab73fb3a-335e-4160-9d80-fbd73ed7fe61",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/courses/{{course_id_1}}/notes/{{note_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"courses",
+						"{{course_id_1}}",
+						"notes",
+						"{{note_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "86334d5c-99de-43a0-b8f3-6b835fcc51d3",
+					"name": "Add a note to an invalid course",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course_id_1}}/notes/{{note_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course_id_1}}",
+								"notes",
+								"{{note_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "73"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"49-TMhvAEwXxlZH/I4Y3i5CnXfCHjA\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 02:01:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The course with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a note of a course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "2c016980-4dea-45c9-a70c-bc69d2a5b5d2"
+					}
+				}
+			],
+			"id": "7d95b2d0-dc2d-4ad9-a33d-0c8fc02dc317",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/courses/{{course_id}}/notes/{{note_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"courses",
+						"{{course_id}}",
+						"notes",
+						"{{note_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "5fb544b7-6144-44e4-9bdc-c62b060db43b",
+					"name": "Get a note of a course",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course_id}}/notes/{{note_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course_id}}",
+								"notes",
+								"{{note_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "237"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ed-5vtjqrfRc1LfAJ0P47DwR4xMmD8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 02:01:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"title\": \"Matemáticas\",\n    \"text\": \"tercer capitulo\",\n    \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n    \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n    \"accessible\": \"true\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid note of a course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The note with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "7cec80ae-6363-4a4c-8298-8afb973b41b8"
+					}
+				}
+			],
+			"id": "f0faa842-1cfc-4182-99fb-63a52d7b8477",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/courses/{{course_id}}/notes/{{note_id_0}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"courses",
+						"{{course_id}}",
+						"notes",
+						"{{note_id_0}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "51d462a7-15b0-4060-b9a7-de3b2c1a4d54",
+					"name": "Get an invalid note of a course",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course_id}}/notes/{{note_id_1}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course_id}}",
+								"notes",
+								"{{note_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-Iu4oMQeU79Bx16pF5BlnRm8cTbo\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 02:02:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The note with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a note of an invalid course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The course with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "26a11a8e-1de9-43c3-a1e6-f30a9a5d3480"
+					}
+				}
+			],
+			"id": "a7f406cc-fee0-4f94-b84f-9c467b3ece49",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/courses/{{course_id_1}}/notes/{{note_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"courses",
+						"{{course_id_1}}",
+						"notes",
+						"{{note_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "9e4fe830-ed76-4e28-a5c9-d42787a5976b",
+					"name": "Get a note of an invalid course",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course_id_1}}/notes/{{note_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course_id_1}}",
+								"notes",
+								"{{note_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "73"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"49-TMhvAEwXxlZH/I4Y3i5CnXfCHjA\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 02:02:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The course with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a note non-associated to a course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The note with the given id is not associated to the course\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "ad9c107e-8c13-4ff4-be96-d9c9d38eab13"
+					}
+				}
+			],
+			"id": "04aff1a1-1132-4007-945a-71e387eeb7dd",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/courses/{{course_id}}/notes/{{note_id_1}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"courses",
+						"{{course_id}}",
+						"notes",
+						"{{note_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "49bcdf49-d307-4b83-a231-716ead635253",
+					"name": "Get a note non-associated to a course",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course_id}}/notes/{{note_id_2}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course_id}}",
+								"notes",
+								"{{note_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "89"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"59-twwTxybxK3kI829MnYV1+uwA8h8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 02:03:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The note with the given id is not associated to the course\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all notes of a course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "75866d2d-37c1-4fee-944d-00744279c2d6"
+					}
+				}
+			],
+			"id": "88c23ce5-0b1b-4eeb-8b87-828ea2d7959e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/courses/{{course_id}}/notes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"courses",
+						"{{course_id}}",
+						"notes"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "358bcb14-f186-4218-82c3-3ceb116ca82c",
+					"name": "Get all notes of a course",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course_id}}/notes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course_id}}",
+								"notes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "239"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ef-PadJS2f2wddQDVImTtgAsrYI6H4\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 02:03:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Matemáticas\",\n        \"text\": \"tercer capitulo\",\n        \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n        \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n        \"accessible\": \"true\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get all notes of an invalid course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The course with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "4c76160d-101f-454b-bf7a-34bd3f04dca3"
+					}
+				}
+			],
+			"id": "62ecf671-3186-4187-b7f9-ce2ed7599e71",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/courses/{{course_id_1}}/notes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"courses",
+						"{{course_id_1}}",
+						"notes"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "7f21a99a-2737-4323-aad9-b8c0ad5bdf09",
+					"name": "Get all notes of an invalid course",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course_id_1}}/notes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course_id_1}}",
+								"notes"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "73"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"49-TMhvAEwXxlZH/I4Y3i5CnXfCHjA\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 02:03:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The course with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update the notes of a course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "edef6fcb-e4e6-4cb7-8c00-7d1cc12a2c26"
+					}
+				}
+			],
+			"id": "13f156dc-38ca-417b-b52d-f94893a70e02",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"title\": \"Matemáticas\",\r\n        \"text\": \"primer capitulo\",\r\n        \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\" ,\r\n        \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n        \"accessible\": \"true\"\r\n    }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/courses/{{course_id}}/notes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"courses",
+						"{{course_id}}",
+						"notes"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "db6fa2c0-a797-405b-9691-c3544e006a2e",
+					"name": "Update the notes of a course",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n   \"title\": \"Matemáticas\",\r\n   \"text\": \"tercer capitulo\",\r\n   \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\" ,\r\n   \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"accessible\": \"true\"\r\n}\r\n]\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course_id}}/notes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course_id}}",
+								"notes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "607"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"25f-qHOd/hpjVKKgQLLulzidE6thklE\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 02:04:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"b4f31b86-5623-4989-8bd4-76fc5cbf4347\",\n    \"name\": \"Web Programming\",\n    \"section\": \"2\",\n    \"code\": \"ISIS2345\",\n    \"department\": \"Systems Engineering\",\n    \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\",\n    \"notes\": [\n        {\n            \"title\": \"Matemáticas\",\n            \"text\": \"tercer capitulo\",\n            \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n            \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\n            \"accessible\": \"true\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Update the notes of an invalid course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The course with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "b5e9f80d-27d9-40f2-9264-22163acfe4fc"
+					}
+				}
+			],
+			"id": "5bc239db-7743-45b5-96bb-fcd350f894b4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"title\": \"Matemáticas\",\r\n        \"text\": \"tercer capitulo\",\r\n        \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\" ,\r\n        \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n        \"accessible\": \"true\"\r\n    }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/courses/{{course_id_1}}/notes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"courses",
+						"{{course_id_1}}",
+						"notes"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "fc4ec454-e946-49a5-b721-5fdf7a0e2377",
+					"name": "Update the notes of an invalid course",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"title\": \"Matemáticas\",\r\n        \"text\": \"tercer capitulo\",\r\n        \"icon\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\" ,\r\n        \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n        \"accessible\": \"true\"\r\n    }\r\n]\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course_id_1}}/notes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course_id_1}}",
+								"notes"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "73"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"49-TMhvAEwXxlZH/I4Y3i5CnXfCHjA\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 02:06:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The course with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a note of an invalid course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The course with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "3848c894-4a2d-4448-ad2c-099e37ce70e6"
+					}
+				}
+			],
+			"id": "83d3cfa9-6912-4974-8817-9cf1eb9f014e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/courses/{{course_id_1}}/notes/{{note_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"courses",
+						"{{course_id_1}}",
+						"notes",
+						"{{note_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "b75fa45d-b4df-458c-9d2b-b876ffa8aaa5",
+					"name": "Delete a note of an invalid course",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course_id_1}}/notes/{{note_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course_id_1}}",
+								"notes",
+								"{{note_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "73"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"49-TMhvAEwXxlZH/I4Y3i5CnXfCHjA\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 02:20:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The course with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid note of a course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The note with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "dfd3fa6d-38d9-4f7f-a15d-5d830815c3c6"
+					}
+				}
+			],
+			"id": "ccfbf140-0cae-46e4-b457-124724af3a2e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/courses/{{course_id}}/notes/{{note_id_0}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"courses",
+						"{{course_id}}",
+						"notes",
+						"{{note_id_0}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "accc15f3-0f93-4a85-8795-0dad988df1a9",
+					"name": "Delete an invalid note of a course",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course_id}}/notes/{{note_id_1}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course_id}}",
+								"notes",
+								"{{note_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-Iu4oMQeU79Bx16pF5BlnRm8cTbo\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 02:20:57 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The note with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a note non-associated to a course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The note with the given id is not associated to the course\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "ac2d1b66-0f16-497d-aae4-aaf3c8352fbe"
+					}
+				}
+			],
+			"id": "3d3ed6f3-d4f4-4cff-a8d4-6c6acd2c0cc4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/courses/{{course_id}}/notes/{{note_id_1}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"courses",
+						"{{course_id}}",
+						"notes",
+						"{{note_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "4e7107fd-f52f-4c26-95d7-68e68b38bd99",
+					"name": "Delete a note non-associated to a course",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course_id}}/notes/{{note_id_2}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course_id}}",
+								"notes",
+								"{{note_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "89"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"59-twwTxybxK3kI829MnYV1+uwA8h8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 02:22:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The note with the given id is not associated to the course\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a note of a course",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "c215a998-a9da-49a1-bcb8-b008799a2bcf"
+					}
+				}
+			],
+			"id": "150d79a9-c185-47fb-88c8-67460d2c63f5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/courses/{{course_id}}/notes/{{note_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"courses",
+						"{{course_id}}",
+						"notes",
+						"{{note_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "2991105b-40f8-4881-8451-792f99ec73b4",
+					"name": "Delete a note of a course",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/courses/{{course_id}}/notes/{{note_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"courses",
+								"{{course_id}}",
+								"notes",
+								"{{note_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 02:22:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete a note 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "23b97f12-8ffb-40f2-a2ae-10ea079233eb"
+					}
+				}
+			],
+			"id": "984814ea-311c-4747-a1f3-721edf0b7059",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/notes/{{note_id_1}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes",
+						"{{note_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "e72fa1cc-696f-4010-b8c5-e8a07517546b",
+					"name": "Delete a note 1",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/notes/{{note_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes",
+								"{{note_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Mar 2023 00:44:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "17925dbe-0c8f-44a5-afcf-35f7fd3b52ce"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "510d7bbf-5f93-48d5-92ec-24968d09101f"
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "6d17431f-36c3-452b-81e9-5ae741e9d0bb",
+			"key": "baseURL",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		},
+		{
+			"id": "070d8c38-c804-45c5-982d-c317fa437885",
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTU0NjA4Nn0.6O4-ghM5O6XJXUgsowaxblMRa8WLKkEMRwGDZdt9cho",
+			"type": "string"
+		}
+	]
+}

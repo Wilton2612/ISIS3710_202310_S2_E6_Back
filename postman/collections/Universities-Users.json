@@ -1,0 +1,1626 @@
+{
+	"info": {
+		"_postman_id": "7149f6f5-4725-4096-811a-5fd24fdd2b67",
+		"name": "Universities-Users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "17660274-7149f6f5-4725-4096-811a-5fd24fdd2b67"
+	},
+	"item": [
+		{
+			"name": "Add User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cf39b07f-7c10-41a1-aabd-f52e952b402b",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "16887c6b-5537-4e1a-b41c-414e38534f91",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Juan Perez\",\n    \"email\": \"j.perez@uniandes.edu.co\",\n    \"password\": \"contrasenaSegura\",\n    \"image\": \"imagen.url.com\",\n    \"user\": \"j.perez\",\n    \"userType\": \"j.perez\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "0502b1d0-dbd0-4580-a0e6-16d2ce1af268",
+					"name": "Add User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"Juan Perez\",\n    \"mail\": \"j.perez@uniandes.edu.co\",\n    \"password\": \"contrasenaSegura\",\n    \"image\": \"imagen.url.com\",\n    \"login\": \"j.perez\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"cookie": []
+				}
+			]
+		},
+		{
+			"name": "Add a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "30f3ad62-790f-4b38-8d49-35be7bd8cbe5",
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"university_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "3e967eb2-1624-490b-89cb-ec9afd033824",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\": \"Universidad de los Andes\",\r\n   \"description\": \"Welcome to the Andes university\",\r\n   \"country\": \"Colombia\",\r\n   \"address\":\"Carrera 1 No 25-12\",\r\n   \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/university",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"university"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "470bd075-98f1-473b-a9c5-416098653543",
+					"name": "Add a university",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"Universidad de los Andes\",\r\n   \"frontPage\": \"Welcome to the Andes university\",\r\n   \"country\": \"Colombia\",\r\n   \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/universities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"universities"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n   \"name\": \"Universidad de los Andes\",\r\n   \"frontPage\": \"Welcome to the Andes university\",\r\n   \"country\": \"Colombia\",\r\n   \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a user to a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cc43cf9d-255b-4486-8692-851b61f16296",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "4a14196e-0ef1-47ae-8187-64bcff9a43be",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/universities/{{university_id}}/users/{{user_id_1}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"{{university_id}}",
+						"users",
+						"{{user_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "a2940983-9c23-40e0-bad5-e3a7679a8924",
+					"name": "Add a user to a university",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}/users/{{user_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}",
+								"users",
+								"{{user_id_1}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n   \"name\": \"Universidad de los Andes\",\n   \"frontPage\": \"Welcome to the Andes university\",\n   \"country\": \"Colombia\",\n   \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\",\n    \"users\": [\n           {\n               \"id\": \"202020414\",\n               \"name\": \"Jairo Gómez\",\n               \"email\": \"jn.gomezm1@uniandes.edu.co\",\n               \"password\":\"xxxx-xxxx-xxxxx\",\n               \"user\":\"jngm8\",\n               \"image\": \"https://www.portrait.gov.au/files/b/b/2/c/i5398.jpg\"\n           },\n           {\n               \"id\": \"128590347\",\n               \"name\": \"Wilton Martinez\",\n               \"email\": \"wilton.1@uniandes.edu.co\",\n               \"password\":\"xxxx-xxxx-xxxxx\",\n               \"user\":\"wilton4\",\n               \"image\": \"https://www.portrait.gov.au/files/b/b/2/c/i5398.jpg\"\n           }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add an invalid user to a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dcc8038a-2c61-4e5b-85ff-08a800dd033d",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "51279dd2-9272-436a-889d-06a964268362",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/universities/{{university_id}}/users/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"{{university_id}}",
+						"users",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "2ddc863d-a98d-4120-9d9c-507138771085",
+					"name": "Add an invalid user to a university",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}/user/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}",
+								"user",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The user with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a course to an invalid university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c0dd5718-a3d8-4a54-af33-98f54f8969f3",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The course with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "4507cbed-8465-4c6b-88a1-293ff545a2f7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/universities/00000000-0000-0000-0000-000000000000/courses/{{user_id_1}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"00000000-0000-0000-0000-000000000000",
+						"courses",
+						"{{user_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "a9d060cf-caf4-40ad-832f-8b2f1ea27a36",
+					"name": "Add a course to an invalid university",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/00000000-0000-0000-0000-000000000000/courses/{{course_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"00000000-0000-0000-0000-000000000000",
+								"courses",
+								"{{course_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The university with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a user of a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "110d7946-26da-4cd2-88b2-a668651b9a75",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "c2c0ba70-1e5f-4145-8959-5444c4a9b370",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/universities/{{university_id}}/users/{{user_id_1}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"{{university_id}}",
+						"users",
+						"{{user_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "21b34e38-9c5e-41bc-8640-0e92ad0fbf7d",
+					"name": "Get a user of a university",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}/user/{{user_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}",
+								"user",
+								"{{user_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n       \"id\": \"ISIS3425\",\n       \"name\": \"Web Programming\",\n       \"department\": \"Systems Engineering\",\n       \"section\": \"2\",\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid user of a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b568b49d-df6f-4880-bb6b-449b4c1745d9",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "0dc2d0b1-7578-447b-b65c-343243ac68ab",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/universities/{{university_id}}/users/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"{{university_id}}",
+						"users",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "347e8cce-81f4-4b49-afd3-ef93bebf0134",
+					"name": "Get an invalid user of a university",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}/users/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}",
+								"users",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The user  with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a user of an invalid university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4cf88c6b-223c-417e-9093-cc0699a15beb",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "c812c54e-643d-4479-baa4-9fa0708cc30d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/universities/00000000-0000-0000-0000-000000000000/users/{{users_id_1}}",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"universities",
+						"00000000-0000-0000-0000-000000000000",
+						"users",
+						"{{users_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "2e18b191-4b0c-48b9-b9d3-db1e9e01e378",
+					"name": "Get a user of an invalid university",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/00000000-0000-0000-0000-000000000000/user/{{users_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"00000000-0000-0000-0000-000000000000",
+								"user",
+								"{{users_id_1}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The university with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a user non-associated to a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3639b502-8b37-4864-8aaf-6db34bd6106e",
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The user with the given id is not associated to the museum\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "b7138bc7-2194-4b18-bf2d-3b884f63a006",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/universities/{{university_id}}/users/{{user_id_2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"{{university_id}}",
+						"users",
+						"{{user_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "2983491b-2636-4595-8659-66d7502b280e",
+					"name": "Get a user non-associated to a university",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}/users/{{user_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}",
+								"users",
+								"{{user_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 412,\r\n   \"message\": \"The user with the given id is not associated to the university\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all users of a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f4fa544b-fa51-466f-b178-7ff549d2fe2f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "daa9672d-4158-4e16-9aa9-39dd7d67259f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/universities/{{university_id}}/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"{{university_id}}",
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "d15eed01-006a-40b4-b825-aad34014fb80",
+					"name": "Get all users of a university",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}",
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": " [\r\n            {\r\n               \"id\": \"202020414\",\r\n               \"name\": \"Jairo Gómez\",\r\n               \"email\": \"jn.gomezm1@uniandes.edu.co\",\r\n               \"password\":\"xxxx-xxxx-xxxxx\",\r\n               \"user\":\"jngm8\",\r\n               \"image\": \"https://www.portrait.gov.au/files/b/b/2/c/i5398.jpg\"\r\n           }\r\n\r\n ]"
+				}
+			]
+		},
+		{
+			"name": "Get all users of an invalid university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bf2da658-df58-493f-b8a0-a424adb5d7db",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The museum with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "0add5c36-e530-4b0c-91fb-3bf07344cb80",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/universities/00000000-0000-0000-0000-000000000000/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"00000000-0000-0000-0000-000000000000",
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "0eacdebf-f9e9-416b-a38f-326ddd858248",
+					"name": "Get all users of an invalid university",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/00000000-0000-0000-0000-000000000000/users\n\n",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"00000000-0000-0000-0000-000000000000",
+								"users\n\n"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The university with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update users of a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "de5ceca0-d097-4f60-8485-a467432ef31c",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "ad9b57b8-ce4e-4824-9b1b-354ff39fc4e5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"{{user_id_2}}\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/universities/{{university_id}}/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"{{university_id}}",
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "6a2c5bcb-53da-4995-8de3-f7d5988affdb",
+					"name": "Update courses of a university",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n       \"id\": \"{{course_id_2}}\"\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}/courses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}",
+								"courses"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n   \"name\": \"Universidad de los Andes\",\r\n   \"frontPage\": \"Welcome to the Andes university\",\r\n   \"country\": \"Colombia\",\r\n   \"image\": \"https://www.google.com/search?q=universidad+de+los+andes&tbm=isch&hl=es&chips=q:universidad+de+los+andes,g_1:logo:hBz0CQW6eZg%3D&sa=X&ved=2ahUKEwjTmquC1KH9AhW1lYQIHZDkDiEQ4lYoAHoECAEQJg&biw=1519&bih=746#imgrc=Wkis32Sm3TtOCM\",\r\n\r\n   \"courses\": [\r\n       {\r\n       \"id\": \"ISIS3425\",\r\n       \"name\": \"Web Programming 3\",\r\n       \"department\": \"Systems Engineering\",\r\n       \"section\": \"2\",\r\n       \"image\": \"https://www.google.com/search?q=cursos&sxsrf=AJOqlzXyKI-pt48g9EpwAGFaM4lm-XoMcw:1676811410584&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjrvO6j0aH9AhV4jbAFHV6FBvUQ_AUoAXoECAEQAw&biw=1536&bih=746&dpr=1.25#imgrc=D3Uh1HsDdaMhAM\"\r\n       }\r\n   ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update invalid users of a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d14df0fe-a72a-4097-8a4b-dcd6a44db637",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "1bd03d31-0e14-4451-b6df-db7b3ab2fda2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/universities/{{university_id}}/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"{{university_id}}",
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "ee7a18a4-1624-48a1-9daf-668991d9b13a",
+					"name": "Update invalid users of a user",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}",
+								"users"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The user with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update users of an invalid university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4330999b-6fad-470c-806a-3513bdb6ce14",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The university with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "d54d1c30-8a88-49fc-917c-3f1a09bb30c1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"{{user_id_2}}\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/universities/00000000-0000-0000-0000-000000000000/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"00000000-0000-0000-0000-000000000000",
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "bee340c5-571d-4dbe-93ef-429e840122e7",
+					"name": "Update users of an invalid user",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n       \"id\": \"{{course_id_2}}\"\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/universities/00000000-0000-0000-0000-000000000000/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"00000000-0000-0000-0000-000000000000",
+								"users"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The university with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a user of a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3e7f5d5a-4ea8-41e5-9d23-4bf9ce0ed62f",
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "c57fbb18-7921-4e90-8df8-775f53958a7b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/universities/{{university_id}}/users/{{user_id_2}}\n\n",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"{{university_id}}",
+						"users",
+						"{{user_id_2}}\n\n"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "7ca0dd62-aa92-47cc-96b9-4d1e454509a5",
+					"name": "Delete a user of a university",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}/users{{user_id_2}}\n\n",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}",
+								"users{{user_id_2}}\n\n"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"cookie": []
+				}
+			]
+		},
+		{
+			"name": "Delete a user of an invalid university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0545ebc3-daaa-4ce0-8274-708bca490de2",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The university with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "b8e4ff65-2a7d-4b7d-a6e2-5bd0cba40776",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/universities/00000000-0000-0000-0000-000000000000/courses/{{user_id_2}}.",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"universities",
+						"00000000-0000-0000-0000-000000000000",
+						"courses",
+						"{{user_id_2}}."
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "6522533b-4d2c-4ade-a992-8660b0741db6",
+					"name": "Delete a user of an invalid university",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/00000000-0000-0000-0000-000000000000/users/{{user_id_2}}.",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"00000000-0000-0000-0000-000000000000",
+								"users",
+								"{{user_id_2}}."
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The user with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid user of a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "af4e19f2-b390-4eec-81aa-9f9c31251208",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "6834ac64-bef5-4ab9-a507-74a97980bf9e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/universities/{{university_id}}/users/00000000-0000-0000-0000-000000000000\n\n",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"{{university_id}}",
+						"users",
+						"00000000-0000-0000-0000-000000000000\n\n"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "13bd7e4e-040e-4e26-8a48-a6aab60dcf1d",
+					"name": "Delete an invalid user of a university",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}/users/00000000-0000-0000-0000-000000000000\n\n",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}",
+								"users",
+								"00000000-0000-0000-0000-000000000000\n\n"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The user with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a user non-associated to a university",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4a285dca-f843-4d78-877d-71af0bf0a052",
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"The user with the given id is not associated to the museum\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "907d837a-0ba5-470c-8347-43a3b62fb85e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJzdWIiOjEsImlhdCI6MTY3OTUzNzgwMn0.bfn7ISIxkeBLl6o7RR7ZhIqu3tS5nFQqo8C34TypFZM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/universities/{{university_id}}/users/{{user_id_1}}\n\n",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"universities",
+						"{{university_id}}",
+						"users",
+						"{{user_id_1}}\n\n"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "e977e8c1-f2aa-402a-87bb-2fb10a868cd3",
+					"name": "Delete a user non-associated to a university",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/universities/{{university_id}}/users/{{user_id_1}}\n\n",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"universities",
+								"{{university_id}}",
+								"users",
+								"{{user_id_1}}\n\n"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The user does not exist to the given user\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a5695725-8d46-46a2-b70b-089780e7f56e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "4e31fb6f-31f0-4b60-a4e7-851d6f85032a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "4e1f9181-d7e1-4ce8-8e20-10dea8439e4d",
+			"key": "baseURL",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		},
+		{
+			"id": "e70382c4-4b91-4022-ba95-c97de247efc6",
+			"key": "user_id_1",
+			"value": "40a290e0-2492-4503-bc0d-c62cb2249462",
+			"type": "string"
+		},
+		{
+			"id": "201a8b22-023d-4952-ba32-85bec6b27103",
+			"key": "university_id",
+			"value": "6666190b-c340-4e9c-9e78-c99eca62f040",
+			"type": "string"
+		}
+	]
+}

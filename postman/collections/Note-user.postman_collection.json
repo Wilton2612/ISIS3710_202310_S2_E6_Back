@@ -1,0 +1,1772 @@
+{
+	"info": {
+		"_postman_id": "2b553ff7-9d34-4950-ae6c-b933f7193f21",
+		"name": "Note-user",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "20511316-2b553ff7-9d34-4950-ae6c-b933f7193f21"
+	},
+	"item": [
+		{
+			"name": "Obtener token Copy 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"token\", data.token);"
+						],
+						"type": "text/javascript",
+						"id": "1d79a0e5-2134-46fd-88bd-f8073e20d1b1"
+					}
+				}
+			],
+			"id": "5b4ae31e-cedd-4d17-af91-ee3ba278ed3e",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"username\": \"teacher\",\n   \"password\": \"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/privacyusers/login",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"privacyusers",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a note1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"note_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "af464164-31ac-48f6-8823-e6a7f7a5e604"
+					}
+				}
+			],
+			"id": "dc0591e4-d71f-4ffe-aa39-c766def75dd2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"title\": \"Matemáticas\",\r\n   \"text\": \"Primer capitulo\",\r\n   \"icon\": \"url.tobe.com\",\r\n   \"accessible\": \"true\",\r\n   \"portada\": \"portada.url.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/notes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "57044579-7e22-4802-9920-7a16ad84c0a3",
+					"name": "Add a note",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"titulo\": \"Matemáticas\",\r\n   \"texto\": \"Primer capitulo\",\r\n   \"icono\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABNUlEQVR4nO2aTWrDMBBGX7vu0oZCyAXSi+RMheYAbS6VeBkIxYt2W5yDqBhUY0zUSP6JNfI80EY2lp7nk2yMITG2wAUwwlpl595QRTCpITINf51TcNdrGxW5jVbkHtE6AKcUKmICzlcRD7QiYqP1AHwGPGWLAJEn4GfsaxvHYI/AOWCw44QixyEiyUTLhYqMjNGKWArH4hO3RkJQEQ+0In3QaA2JltTWkJzIFOga8UAr0geNlgfLjdYK2AHZlWN13xuw9h1sTpFXe7wE8lZ/bvuMPcdrsDk+PrTvetmRaUuUjmpF+fEh70y8K4aEaF2TqdsX8Mz/iBD5liiSpxCtLILFXowh8uGx/b5L2LVerIzrgbgHNoEiY2AW+4oyBBXxQCsSfbSqgG0w6p9qtkJlqu5vTuL5BbEmsHUs0wJqAAAAAElFTkSuQmCC\",\r\n   \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"accesible\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/notes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"id\": \"48a9ab90-1276-11ed-861d-0242ac120001\",\r\n   \"titulo\": \"Matemáticas\",\r\n   \"texto\": \"Primer capitulo\",\r\n   \"icono\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABNUlEQVR4nO2aTWrDMBBGX7vu0oZCyAXSi+RMheYAbS6VeBkIxYt2W5yDqBhUY0zUSP6JNfI80EY2lp7nk2yMITG2wAUwwlpl595QRTCpITINf51TcNdrGxW5jVbkHtE6AKcUKmICzlcRD7QiYqP1AHwGPGWLAJEn4GfsaxvHYI/AOWCw44QixyEiyUTLhYqMjNGKWArH4hO3RkJQEQ+0In3QaA2JltTWkJzIFOga8UAr0geNlgfLjdYK2AHZlWN13xuw9h1sTpFXe7wE8lZ/bvuMPcdrsDk+PrTvetmRaUuUjmpF+fEh70y8K4aEaF2TqdsX8Mz/iBD5liiSpxCtLILFXowh8uGx/b5L2LVerIzrgbgHNoEiY2AW+4oyBBXxQCsSfbSqgG0w6p9qtkJlqu5vTuL5BbEmsHUs0wJqAAAAAElFTkSuQmCC\",\r\n   \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"accesible\": true\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add a note2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"note_id_2\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "242fcd96-cdf3-491d-ad60-3dc783af769c"
+					}
+				}
+			],
+			"id": "2da6bfc7-9aa0-431a-a55b-dd2457cdd525",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"title\": \"Perro loco\",\r\n   \"text\": \"Primer capitulo\",\r\n   \"icon\": \"url.tobe.com\",\r\n   \"accessible\": \"true\",\r\n   \"portada\": \"portada.url.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/notes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"notes"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "f38d9c6c-874c-4bef-a884-8746d3794097",
+					"name": "Add a note",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"titulo\": \"Matemáticas\",\r\n   \"texto\": \"Primer capitulo\",\r\n   \"icono\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABNUlEQVR4nO2aTWrDMBBGX7vu0oZCyAXSi+RMheYAbS6VeBkIxYt2W5yDqBhUY0zUSP6JNfI80EY2lp7nk2yMITG2wAUwwlpl595QRTCpITINf51TcNdrGxW5jVbkHtE6AKcUKmICzlcRD7QiYqP1AHwGPGWLAJEn4GfsaxvHYI/AOWCw44QixyEiyUTLhYqMjNGKWArH4hO3RkJQEQ+0In3QaA2JltTWkJzIFOga8UAr0geNlgfLjdYK2AHZlWN13xuw9h1sTpFXe7wE8lZ/bvuMPcdrsDk+PrTvetmRaUuUjmpF+fEh70y8K4aEaF2TqdsX8Mz/iBD5liiSpxCtLILFXowh8uGx/b5L2LVerIzrgbgHNoEiY2AW+4oyBBXxQCsSfbSqgG0w6p9qtkJlqu5vTuL5BbEmsHUs0wJqAAAAAElFTkSuQmCC\",\r\n   \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"accesible\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/notes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"id\": \"48a9ab90-1276-11ed-861d-0242ac120001\",\r\n   \"titulo\": \"Matemáticas\",\r\n   \"texto\": \"Primer capitulo\",\r\n   \"icono\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABNUlEQVR4nO2aTWrDMBBGX7vu0oZCyAXSi+RMheYAbS6VeBkIxYt2W5yDqBhUY0zUSP6JNfI80EY2lp7nk2yMITG2wAUwwlpl595QRTCpITINf51TcNdrGxW5jVbkHtE6AKcUKmICzlcRD7QiYqP1AHwGPGWLAJEn4GfsaxvHYI/AOWCw44QixyEiyUTLhYqMjNGKWArH4hO3RkJQEQ+0In3QaA2JltTWkJzIFOga8UAr0geNlgfLjdYK2AHZlWN13xuw9h1sTpFXe7wE8lZ/bvuMPcdrsDk+PrTvetmRaUuUjmpF+fEh70y8K4aEaF2TqdsX8Mz/iBD5liiSpxCtLILFXowh8uGx/b5L2LVerIzrgbgHNoEiY2AW+4oyBBXxQCsSfbSqgG0w6p9qtkJlqu5vTuL5BbEmsHUs0wJqAAAAAElFTkSuQmCC\",\r\n   \"portada\": \"https://cdn.pixabay.com/photo/2016/06/13/07/59/pi-1453836_960_720.jpg\",\r\n   \"accesible\": true\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.globals.set(\"user_id\", data.id);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "3b25b996-7766-4e58-a1b2-a1535f18f957"
+					}
+				}
+			],
+			"id": "eb9eb79f-2740-4ee1-8d9b-4c278b560ada",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Juan Perez\",\n    \"email\": \"j.perez@uniandes.edu.co\",\n    \"password\": \"contrasenaSegura\",\n    \"image\": \"imagen.url.com\",\n    \"user\": \"j.perez\",\n    \"userType\": \"student\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "d37788ca-3b35-4657-8c6d-9313239ebdc9",
+					"name": "Add User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"name\": \"Juan Perez\",\n    \"mail\": \"j.perez@uniandes.edu.co\",\n    \"password\": \"contrasenaSegura\",\n    \"image\": \"imagen.url.com\",\n    \"login\": \"j.perez\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Add a note to a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "eddbb45e-0b7f-4608-9fe3-cb33a17663e6"
+					}
+				}
+			],
+			"id": "7d820893-b904-48ba-94ff-f3bc51a8f84f",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/notes/{{note_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"notes",
+						"{{note_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "428f8fd6-c3d6-4278-b44c-f154d32f5c33",
+					"name": "Add a note to a user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"ffe25032-b95b-4fb7-a3e0-35092403141b\",\n    \"name\": \"Juan Perez\",\n    \"email\": \"j.perez@uniandes.edu.co\",\n    \"password\": \"contrasenaSegura\",\n    \"image\": \"imagen.url.com\",\n    \"user\": \"j.perez\",\n    \"userType\": \"student\",\n    \"comment\": [],\n    \"university\": null,\n    \"friends\": [],\n    \"friend\": null,\n    \"notes\": [\n        {\n            \"id\": 2,\n            \"title\": \"Matemáticas\",\n            \"text\": \"Primer capitulo\",\n            \"icon\": \"url.tobe.com\",\n            \"portada\": \"portada.url.com\",\n            \"accessible\": \"true\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/notes/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"notes",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Add an invalid note to a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The note with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "6febeee4-1808-40b5-adaf-85894c6069ba"
+					}
+				}
+			],
+			"id": "0616474a-1cb7-402f-8a6d-df4bee771179",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/notes/0000000000000000000000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"notes",
+						"0000000000000000000000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "846f5f8d-7e0c-48a2-84a5-c1a0179e68d0",
+					"name": "Add an invalid note to a user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/notes/00000000000000000000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"notes",
+								"00000000000000000000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Add a note to an invalid user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "930ff951-4c02-40f3-9f6a-1665e21b4a02"
+					}
+				}
+			],
+			"id": "631d82bb-ee8b-4f02-b367-ec63315a64c1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/notes/{{note_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"00000000-0000-0000-0000-000000000000",
+						"notes",
+						"{{note_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "0eec6c72-9bbe-41ea-8b53-6551bd47883e",
+					"name": "Add a note to an invalid user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"statusCode\": 404,\n   \"message\": \"The user with the given id was not found\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/notes/{{note_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"00000000-0000-0000-0000-000000000000",
+								"notes",
+								"{{note_id}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get a note of a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "0cfae5e5-03ea-4ee8-88f6-b403cd2fd1e7"
+					}
+				}
+			],
+			"id": "d96c26f6-f516-4008-b601-68973f21c164",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/notes/{{note_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"notes",
+						"{{note_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "784697f5-2d04-440b-a8f7-1e2f5dabd937",
+					"name": "Get a note of a user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"title\": \"Matemáticas\",\n    \"text\": \"Primer capitulo\",\n    \"icon\": \"url.tobe.com\",\n    \"portada\": \"portada.url.com\",\n    \"accessible\": \"true\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/notes/{{note_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"notes",
+								"{{note_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get an invalid note of a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The note with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "ecffdb0a-f947-450e-b201-f6830c16fe39"
+					}
+				}
+			],
+			"id": "e7391456-57b5-4c73-be98-d01dc5a63399",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/notes/00000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"notes",
+						"00000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "c7f0e18c-1122-4a05-9bc7-47e47558eb90",
+					"name": "Get an invalid note of a user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"statusCode\": 404,\n    \"message\": \"The note with the given id was not found\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/notes/00000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"notes",
+								"00000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get a note of an invalid user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "b1992242-5925-4d3e-a38a-8f59ce4f5d1d"
+					}
+				}
+			],
+			"id": "d4e829b2-6684-4fd9-b18b-659d0491b371",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/notes/{{note_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"00000000-0000-0000-0000-000000000000",
+						"notes",
+						"{{note_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "eac9b98d-28b6-4ba6-b77a-af7abb8739be",
+					"name": "Get a note of an invalid user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"statusCode\": 404,\n    \"message\": \"The user with the given id was not found\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/notes/{{note_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"00000000-0000-0000-0000-000000000000",
+								"notes",
+								"{{note_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get a note non-associated to a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The note with the given id is not associated to the user\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "acf18320-e253-4823-8c41-2b2e045b52aa"
+					}
+				}
+			],
+			"id": "13a93533-6c10-4f24-ad4c-a51f766c0725",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/notes/{{note_id_2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"notes",
+						"{{note_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "1e1e842c-12eb-4b85-8db9-5f010d62dd40",
+					"name": "Get a note non-associated to a user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"statusCode\": 412,\n    \"message\": \"The note with the given id is not associated to the user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/notes/{{note_id_2}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"notes",
+								"{{note_id_2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get all notes of a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "21ffa4e9-7695-423a-842b-064f7bad11f4"
+					}
+				}
+			],
+			"id": "8e303748-4b0a-46c4-8e95-65ada0ee4ec6",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/notes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"notes"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "4ab46339-2940-43e0-9372-6fee467f93c9",
+					"name": "Get all notes of a user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"id\": 1,\n        \"title\": \"Matemáticas\",\n        \"text\": \"Primer capitulo\",\n        \"icon\": \"url.tobe.com\",\n        \"portada\": \"portada.url.com\",\n        \"accessible\": \"true\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/notes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"notes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get all notes of an invalid user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "45ea5937-c28b-432d-83a4-a505ef30885f"
+					}
+				}
+			],
+			"id": "86e0a01e-4acd-4a6c-bc5d-0a57efef4cad",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/notes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"00000000-0000-0000-0000-000000000000",
+						"notes"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "df1b317f-1c87-4263-85e4-d3218a112824",
+					"name": "Get all notes of an invalid user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"statusCode\": 404,\n    \"message\": \"The user with the given id was not found\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/notes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"00000000-0000-0000-0000-000000000000",
+								"notes"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Update notes of a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "ad778c26-64ad-4552-8c81-fe94a8946d3b"
+					}
+				}
+			],
+			"id": "bfd43136-aa23-4276-bac1-e9efe499e241",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n   {\n       \"id\": {{note_id_2}}\n   }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/notes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"notes"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "1595796e-ba8d-4c2c-a051-e0a1abc22326",
+					"name": "Update notes of a user",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"2f2159d7-1d33-4780-a23c-3c3f89fa3c6c\",\n    \"name\": \"Juan Perez\",\n    \"email\": \"j.perez@uniandes.edu.co\",\n    \"password\": \"contrasenaSegura\",\n    \"image\": \"imagen.url.com\",\n    \"user\": \"j.perez\",\n    \"userType\": \"student\",\n    \"notes\": [\n        {\n            \"id\": \"4\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/notes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"notes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Update invalid notes of a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The note with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "38374c4a-9ebf-44b1-85e4-111e29c6a0e7"
+					}
+				}
+			],
+			"id": "1cb5fea7-1302-4522-9272-300e35cb334a",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n   {\n       \"id\": 0\n   }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/notes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"notes"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "4aa9d0ac-ad3e-43c6-aee0-aa4c45dee34d",
+					"name": "Update invalid notes of a user",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"statusCode\": 404,\n    \"message\": \"The note with the given id was not found\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/notes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"notes"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Update notes of an invalid user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "d4921eea-3e42-40f4-a28d-1a73ff167834"
+					}
+				}
+			],
+			"id": "d99d7e73-77a4-43a0-aaa7-c3931b42a814",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n   {\n       \"id\": {{note_id_2}}\n   }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/notes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"00000000-0000-0000-0000-000000000000",
+						"notes"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "e67209fd-9e92-44bc-9899-4c89a4c26144",
+					"name": "Update notes of an invalid user",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"statusCode\": 404,\n    \"message\": \"The user with the given id was not found\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/notes",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"00000000-0000-0000-0000-000000000000",
+								"notes"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete a note of a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "a473de1d-ed43-434a-8957-ce64dcba2892"
+					}
+				}
+			],
+			"id": "0d219284-a48c-4ca6-9905-e5c44ac0e602",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/notes/{{note_id_2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"notes",
+						"{{note_id_2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "b61d83ff-860c-4c6d-ada5-448c0c0725d8",
+					"name": "Delete a note of a user",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/notes/{{note_id_2}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"notes",
+								"{{note_id_2}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete a note of an invalid user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The user with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "fe102dae-e756-4584-b1fc-b806e4e5478b"
+					}
+				}
+			],
+			"id": "cfef9228-8ecc-4ecb-89a3-c4b64ae8cdd3",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/notes/{{note_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"00000000-0000-0000-0000-000000000000",
+						"notes",
+						"{{note_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "7c7fc3f7-2281-4a21-89b4-96e6a33bf1da",
+					"name": "Delete a note of an invalid user",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"statusCode\": 404,\n    \"message\": \"The user with the given id was not found\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/00000000-0000-0000-0000-000000000000/notes/{{note_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"00000000-0000-0000-0000-000000000000",
+								"notes",
+								"{{note_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid note of a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The note with the given id was not found\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "0472ccff-973d-4e01-89da-e3d7848165d3"
+					}
+				}
+			],
+			"id": "af35cd5f-7c2c-4f13-9469-58beee70e5db",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/notes/0000000000000000000000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"notes",
+						"0000000000000000000000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "ad2abda3-1b7f-4473-bda8-60c668d9cf0d",
+					"name": "Delete an invalid note of a user",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"statusCode\": 404,\n    \"message\": \"The note with the given id was not found\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/notes/0000000000000000000000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"notes",
+								"0000000000000000000000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete a note non-associated to a user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {",
+							"   pm.response.to.have.status(412);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"The note with the given id is not associated to the user\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "8800e4a0-a1d0-4506-8297-cc0665429d6c"
+					}
+				}
+			],
+			"id": "0551482d-437e-4243-8bf7-cbeefa2d6742",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users/{{user_id}}/notes/{{note_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users",
+						"{{user_id}}",
+						"notes",
+						"{{note_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "2897bd13-27ed-4ee1-9117-0afabd745eaa",
+					"name": "Delete a note non-associated to a user",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"statusCode\": 412,\n    \"message\": \"The note with the given id is not associated to the user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/{{user_id}}/notes/{{note_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}",
+								"notes",
+								"{{note_id}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "Text",
+					"_postman_previewtype": "html",
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
